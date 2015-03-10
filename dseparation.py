@@ -27,6 +27,7 @@ class dSeparation:
 		V = set()
 		R = set()
 		while L.__len__() > 0:
+			print "L => " + L.__str__()
 			(d,v) = L.pop()
 			if (d,v) not in V:
 				if v not in self.Y:
@@ -76,6 +77,7 @@ class dSeparation:
 		V = set()
 		R = set()
 		while L.__len__() > 0:
+			print "L => " + L.__str__()
 			(d,v) = L.pop()
 			if (d,v) not in V:
 				V.add((d,v))
@@ -85,14 +87,18 @@ class dSeparation:
 					R.add(v)
 				if d == "up" and v not in self.Y:
 					for p in self.dag.parents(v):
-						L.add(("up",p))
+						if p not in Is:
+							L.add(("up",p))
 					for c in self.dag.children(v):
-						L.add(("down",c))
+						if c not in Is:
+							L.add(("down",c))
 				elif d == "down":
 					if v not in self.Y:
 						for c in self.dag.children(v):
-							L.add(("down",c))
+							if c not in Is:
+								L.add(("down",c))
 					if v in A:
 						for p in self.dag.parents(v):
-							L.add(("up",p))
+							if p not in Is:
+								L.add(("up",p))
 		return R

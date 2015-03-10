@@ -11,10 +11,10 @@ class DAG:
 
 	def add(self,node1, node2):
 		if node1 not in self.nodes:
-			self.nodes.add(node1)
+			self.addNode(node1)
 		if node2 not in self.nodes:
-			self.nodes.add(node2)
-		self.edges.add((node1,node2))
+			self.addNode(node2)
+		self.addEdge((node1,node2))
 
 	def parents(self,variables):
 		parents = set()
