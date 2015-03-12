@@ -17,6 +17,8 @@ class DAG:
 		self.addEdge((node1,node2))
 
 	def parents(self,variables):
+		if type(variables) == str:
+			variables = set([variables])
 		parents = set()
 		for variable in variables:
 			for edge in self.edges:
@@ -25,6 +27,8 @@ class DAG:
 		return parents
 
 	def children(self,variables):
+		if type(variables) == str:
+			variables = set([variables])
 		children = set()
 		for variable in variables:
 			for edge in self.edges:
@@ -33,17 +37,21 @@ class DAG:
 		return children
 
 	def ancestors(self,variables):
+		if type(variables) == str:
+			variables = set([variables])
 		parentsOfVariable = self.parents(variables)
-		ancestors = parentsOfVariable
-		toCheck = parentsOfVariable
+		ancestors = parentsOfVariable.copy()
+		toCheck = parentsOfVariable.copy()
 		while toCheck.__len__() > 0:
 			variable = toCheck.pop()
 			if variable not in ancestors:
 				ancestors.add(variable)
-				toCheck = toCheck.union(self.parents(variable))
+			toCheck = toCheck.union(self.parents(variable))
 		return ancestors
 
 	def descendants(self,variables):
+		if type(variables) == str:
+			variables = set([variables])
 		descendants = set()
 		for v in self.nodes:
 			Anv = self.ancestors(v)
