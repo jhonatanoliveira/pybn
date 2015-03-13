@@ -3,6 +3,7 @@ from dseparation import dSeparation
 from plotReachabilityResult import *
 from loadBif import *
 from random import *
+from ordered_set import OrderedSet
 
 # *** Kjaerulff ***
 
@@ -20,30 +21,30 @@ dag.add("g","h")
 
 result = {"title": "Kjaerulff","reachable": [], "i-reachable": [], "tests": []}
 
-dsepDag = dSeparation("c",set([]),"g",dag)
+dsepDag = dSeparation("c",OrderedSet([]),"g",dag)
 result["tests"].append("I(c,{},g)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
-result["i-reachable"].append(dsepDag.iReachable()["numberOfChecks"])
+result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation("c",set([]),"e",dag)
+dsepDag = dSeparation("c",OrderedSet([]),"e",dag)
 result["tests"].append("I(c,{},e)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
-result["i-reachable"].append(dsepDag.iReachable()["numberOfChecks"])
+result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation("c",set(["g"]),"e",dag)
+dsepDag = dSeparation("c",OrderedSet(["g"]),"e",dag)
 result["tests"].append("I(c,g,e)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
-result["i-reachable"].append(dsepDag.iReachable()["numberOfChecks"])
+result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation("a",set(["d","e"]),"g",dag)
+dsepDag = dSeparation("a",OrderedSet(["d","e"]),"g",dag)
 result["tests"].append("I(a,de,g)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
-result["i-reachable"].append(dsepDag.iReachable()["numberOfChecks"])
+result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation("a",set(["d"]),"g",dag)
+dsepDag = dSeparation("a",OrderedSet(["d"]),"g",dag)
 result["tests"].append("I(a,d,g)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
-result["i-reachable"].append(dsepDag.iReachable()["numberOfChecks"])
+result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
 plotReachabilityResult(result)
 
@@ -63,20 +64,20 @@ dag.add("f","h")
 
 result = {"title": "Darwiche","reachable": [], "i-reachable": [], "tests": []}
 
-dsepDag = dSeparation("a",set(["b","h"]),"e",dag)
+dsepDag = dSeparation("a",OrderedSet(["b","h"]),"e",dag)
 result["tests"].append("I(a,bh,e)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
-result["i-reachable"].append(dsepDag.iReachable()["numberOfChecks"])
+result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
 dsepDag = dSeparation("g","d","e",dag)
 result["tests"].append("I(g,d,e)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
-result["i-reachable"].append(dsepDag.iReachable()["numberOfChecks"])
+result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation(set(["a","b"]),"f",set(["g","h"]),dag)
+dsepDag = dSeparation(OrderedSet(["a","b"]),"f",OrderedSet(["g","h"]),dag)
 result["tests"].append("I(ab,f,gh)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
-result["i-reachable"].append(dsepDag.iReachable()["numberOfChecks"])
+result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
 plotReachabilityResult(result)
 
@@ -94,39 +95,39 @@ dag.add("e","h")
 
 result = {"title": "Castillo","reachable": [], "i-reachable": [], "tests": []}
 
-dsepDag = dSeparation("e",set([]),"g",dag)
+dsepDag = dSeparation("e",OrderedSet([]),"g",dag)
 result["tests"].append("I(e,{},g)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
-result["i-reachable"].append(dsepDag.iReachable()["numberOfChecks"])
+result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation("c",set([]),"d",dag)
+dsepDag = dSeparation("c",OrderedSet([]),"d",dag)
 result["tests"].append("I(c,{},d)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
-result["i-reachable"].append(dsepDag.iReachable()["numberOfChecks"])
+result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
 dsepDag = dSeparation("c","g","d",dag)
 result["tests"].append("I(c,g,d)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
-result["i-reachable"].append(dsepDag.iReachable()["numberOfChecks"])
+result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
 dsepDag = dSeparation("b","a","c",dag)
 result["tests"].append("I(b,a,c)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
-result["i-reachable"].append(dsepDag.iReachable()["numberOfChecks"])
+result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation(set(["c","d"]),set([]),"e",dag)
+dsepDag = dSeparation(OrderedSet(["c","d"]),OrderedSet([]),"e",dag)
 result["tests"].append("I(cd,{},e)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
-result["i-reachable"].append(dsepDag.iReachable()["numberOfChecks"])
+result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation("f",set(["a"]),set(["e","h"]),dag)
+dsepDag = dSeparation("f",OrderedSet(["a"]),OrderedSet(["e","h"]),dag)
 result["tests"].append("I(f,a,eh)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
-result["i-reachable"].append(dsepDag.iReachable()["numberOfChecks"])
+result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation(set(["a","c"]),set(["d"]),set(["h","e"]),dag)
+dsepDag = dSeparation(OrderedSet(["a","c"]),OrderedSet(["d"]),OrderedSet(["h","e"]),dag)
 result["tests"].append("I(ac,d,he)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
-result["i-reachable"].append(dsepDag.iReachable()["numberOfChecks"])
+result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
 plotReachabilityResult(result)

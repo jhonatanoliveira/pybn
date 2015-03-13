@@ -3,11 +3,13 @@ from dseparation import dSeparation
 from plotReachabilityResult import *
 from loadBif import *
 from random import *
+from time import time
+from ordered_set import OrderedSet
 
 ## CONTROL ##
 # datasets = ["alarm","asia","cancer","barley","diabetes","hepar2","pathfinder","win95pts","munin"]
 datasets = ["barley"]
-debug = False
+debug = True
 saveFigure = False
 
 # *** Benchmark ***
@@ -17,7 +19,7 @@ for dataset in datasets:
 
 	result = {"title": dataset.capitalize(),"reachable": [], "i-reachable": [], "tests": [], "inaugurals": []}
 
-	for i in range(0,4):
+	for i in range(0,1):
 		allNodes = [node for node in dag.nodes]
 
 		varX = "nedbarea"
@@ -30,10 +32,10 @@ for dataset in datasets:
 		# varZ = choice(allNodes)
 		allNodes.remove(varZ)
 
-		dsepDag = dSeparation(set([varX]),set([varY]),set([varZ]),dag, debug)
+		dsepDag = dSeparation(OrderedSet([varX]),OrderedSet([varY]),OrderedSet([varZ]),dag, debug)
 		result["tests"].append("I(" +varX+ "," +varY+ "," +varZ+ ")")
 		result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
-		result["i-reachable"].append(dsepDag.iReachable()["numberOfChecks"])
+		result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 		result["inaugurals"].append(dsepDag.inaugurals().__len__())
 
 

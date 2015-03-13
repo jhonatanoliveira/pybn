@@ -3,14 +3,16 @@ from dseparation import dSeparation
 from plotReachabilityResult import *
 from loadBif import *
 from random import *
+from time import *
 import csv
+from ordered_set import OrderedSet
 
 ## CONTROL ##
 results = []
 # datasets = ["alarm","barley","child","hailfinder","insurance","mildew","water"] # Medium
 # csvName = "benchmarkDSepISep_medium"
-# datasets = ["hepar2","win95pts"] # Large
-# csvName = "benchmarkDSepISep_large"
+datasets = ["hepar2","win95pts"] # Large
+csvName = "benchmarkDSepISep_large"
 # datasets = ["andes","diabetes","link","pathfinder","pigs"] # Very Large
 # csvName = "benchmarkDSepISep_very_large"
 # datasets = ["munin"] # Massive
@@ -37,22 +39,31 @@ for dataset in datasets:
 		varZ = choice(allNodes)
 		allNodes.remove(varZ)
 
-		dsepDag = dSeparation(set([varX]),set([varY]),set([varZ]),dag, debug)
+		dsepDag = dSeparation(OrderedSet([varX]),OrderedSet([varY]),OrderedSet([varZ]),dag, debug)
 		result["test"] = "I(" +varX+ "," +varY+ "," +varZ+ ")"
+		iTime0 = time()
 		result["inaugurals"] = dsepDag.inaugurals().__len__()
+		iTime1 = time()
+		dSepTime0 = time()
 		numberOfChecksReachable = dsepDag.reachable()["numberOfChecks"]
-		numberOfChecksIReachable = dsepDag.iReachable()["numberOfChecks"]
+		dSepTime1 = time()
+		iSepTime0 = time()
+		numberOfChecksIReachable = dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"]
+		iSepTime1 = time()
 		result["d-sep"] = numberOfChecksReachable
 		result["i-sep"] = numberOfChecksIReachable
 		percentage = round(float(numberOfChecksIReachable)/float(numberOfChecksReachable), 4)
 		percentage = percentage * 100
 		result["saving"] = format(percentage,".2f")
+		result["dSepTime"] = dSepTime1 - dSepTime0
+		result["iSepTime"] = iSepTime1 -iSepTime0
+		result["iTime"] = iTime1 -iTime0
 
 		results.append(result)
 
 # Save the CSV file
-with open(csvName + '.csv', 'w') as csvfile:
-    fieldnames = ['name', 'test', 'inaugurals', 'd-sep', 'i-sep', 'saving']
+with open("results/	" + csvName + '.csv', 'w') as csvfile:
+    fieldnames = ['name', 'test', 'inaugurals', 'd-sep', 'i-sep', 'saving', 'dSepTime', 'iSepTime', 'iTime']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
     writer.writerows(results)

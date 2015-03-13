@@ -1,85 +1,26 @@
+from ordered_set import OrderedSet
+
 class dSeparation:
 
 	def __init__(self,X,Y,Z,dag,debug=False):
-		if type(X) is not set:
-			self.X = set([X])
+		if type(X) is not OrderedSet:
+			self.X = OrderedSet([X])
 		else:
 			self.X = X
-		if type(Y) is not set:
-			self.Y = set([Y])
+		if type(Y) is not OrderedSet:
+			self.Y = OrderedSet([Y])
 		else:
 			self.Y = Y
-		if type(Z) is not set:
-			self.Z = set([Z])
+		if type(Z) is not OrderedSet:
+			self.Z = OrderedSet([Z])
 		else:
 			self.Z = Z
 		self.dag = dag
 		self.debug = debug
 
-	def reachable(self):
-		# Phase I: insert all ancestors of Y into A
-		AnY = self.dag.ancestors(self.Y)
-		A = AnY.union(self.Y)
-
-		# Phase II: traverse active trails starting from X
-		L = set()
-		for v in self.X:
-			L = L.union( set([ ("up",v) ]) )
-		V = set()
-		R = set()
-		### DEBUG
-		if self.debug:
-			print
-			print "### Running REACHABLE ###"
-			print
-		### -- DEBUG
-		numberOfChecks = 0
-		while L.__len__() > 0:
-			(d,v) = L.pop()
-			numberOfChecks = numberOfChecks + 1
-			### DEBUG
-			if self.debug:
-				print "--- Loop ---"
-				print "Select:"
-				print (d,v)
-				print "L:"
-				print L
-			### -- DEBUG
-			if (d,v) not in V:
-				if v not in self.Y:
-					R.add(v)
-					### DEBUG
-					if self.debug:
-						print "R:"
-						print R
-					### -- DEBUG
-				V.add((d,v))
-				### DEBUG
-				if self.debug:
-					print "V:"
-				### -- DEBUG
-				if d == "up" and v not in self.Y:
-					for p in self.dag.parents(v):
-						L.add(("up",p))
-					for c in self.dag.children(v):
-						L.add(("down",c))
-				elif d == "down":
-					if v not in self.Y:
-						for c in self.dag.children(v):
-							L.add(("down",c))
-					if v in A:
-						for p in self.dag.parents(v):
-							L.add(("up",p))
-			### DEBUG
-			if self.debug:
-				print "L:"
-				print L
-			### -- DEBUG
-		return {"R": R, "numberOfChecks": numberOfChecks}
-
 	def inaugurals(self):
 		# Inaugural variables
-		I = set()
+		I = OrderedSet()
 		vstructures = self.dag.vstructures()
 		XYZ = self.X.union( self.Y.union(self.Z) )
 		AnXYZ = self.dag.ancestors(XYZ)
@@ -88,35 +29,40 @@ class dSeparation:
 			Anv = self.dag.ancestors(v)
 			if Anv.intersection(V).__len__() == 0:
 				I.add(v)
-		# Descendants of Inaugural variables
-		DeI = self.dag.descendants(I)
-		return I.union(DeI)
+		return I
 		
-	def iReachable(self):
+	def reachable(self, consideringInaugurals = False):
 		### DEBUG
 		if self.debug:
 			print
-			print "### Running i-REACHABLE ###"
+			print "### Running REACHABLE ###"
 			print
 		### -- DEBUG
 		# Phase I: insert all ancestors of Y into A
-		AnY = self.dag.ancestors(self.Y)
-		A = AnY.union(self.Y)
+		A = self.dag.ancestors(self.Y, True)
 
-		# Phase II: insert all inaugurals in I
-		Is = self.inaugurals()
-		### DEBUG
-		if self.debug:
-			print "Is:"
-			print Is
-		### -- DEBUG
+		if consideringInaugurals:
+			# Phase II: insert all inaugurals in I
+			I = self.inaugurals()
+			### DEBUG
+			if self.debug:
+				print "I: (" + str(I.__len__()) + ")"
+				print I
+			### -- DEBUG
+			DeI = self.dag.descendants(I) # Descendants of Inaugural variables
+			Is = I.union(DeI) # Union
+			### DEBUG
+			if self.debug:
+				print "Is: (" + str(Is.__len__()) + ")"
+				print Is
+			### -- DEBUG
 
 		# Phase III: traverse active trails starting from X
-		L = set()
+		L = OrderedSet()
 		for v in self.X:
-			L = L.union( set([ ("up",v) ]) )
-		V = set()
-		R = set()
+			L.add(("up",v))
+		V = OrderedSet()
+		R = OrderedSet()
 		numberOfChecks = 0
 		while L.__len__() > 0:
 			(d,v) = L.pop()
@@ -137,8 +83,12 @@ class dSeparation:
 					print V
 				### -- DEBUG
 				if v not in self.Y:
-					if v in Is:
+					if consideringInaugurals and (v in Is): #TODO: remove
 						continue
+						### DEBUG
+						if self.debug:
+							print ">>> Is this used?"
+						### -- DEBUG
 					R.add(v)
 					### DEBUG
 					if self.debug:
@@ -147,23 +97,45 @@ class dSeparation:
 					### -- DEBUG
 				if d == "up" and v not in self.Y:
 					for p in self.dag.parents(v):
-						if p not in Is:
+						if consideringInaugurals:
+							if p not in Is:
+								L.add(("up",p))
+						else:
 							L.add(("up",p))
 					for c in self.dag.children(v):
-						if c not in Is:
+						if consideringInaugurals:
+							if p not in Is:
+								L.add(("down",c))
+						else:
 							L.add(("down",c))
 				elif d == "down":
 					if v not in self.Y:
 						for c in self.dag.children(v):
-							if c not in Is:
+							if consideringInaugurals:
+								if p not in Is:
+									L.add(("down",c))
+							else:
 								L.add(("down",c))
 					if v in A:
 						for p in self.dag.parents(v):
-							if p not in Is:
+							if consideringInaugurals:
+								if p not in Is:
+									L.add(("up",p))
+								else:
+									### DEBUG
+									if self.debug:
+										print ">>> Is this used? 2"
+									### -- DEBUG
+							else:
 								L.add(("up",p))
 			### DEBUG
 			if self.debug:
 				print "L:"
 				print L
 			### -- DEBUG
+		### DEBUG
+		if self.debug:
+			print "R:"
+			print R
+		### -- DEBUG
 		return {"R": R, "numberOfChecks": numberOfChecks}

@@ -1,4 +1,5 @@
 from dag import DAG
+from ordered_set import OrderedSet
 
 def loadBif(bifFilePath):
 	

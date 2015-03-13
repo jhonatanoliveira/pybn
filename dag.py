@@ -1,7 +1,9 @@
+from ordered_set import OrderedSet
+
 class DAG:
 	def __init__(self):
-		self.nodes = set()
-		self.edges = set()
+		self.nodes = OrderedSet()
+		self.edges = OrderedSet()
 
 	def addNode(self,node):
 		self.nodes.add(node)
@@ -18,8 +20,8 @@ class DAG:
 
 	def parents(self,variables):
 		if type(variables) == str:
-			variables = set([variables])
-		parents = set()
+			variables = OrderedSet([variables])
+		parents = OrderedSet()
 		for variable in variables:
 			for edge in self.edges:
 				if edge[1] == variable:
@@ -28,17 +30,17 @@ class DAG:
 
 	def children(self,variables):
 		if type(variables) == str:
-			variables = set([variables])
-		children = set()
+			variables = OrderedSet([variables])
+		children = OrderedSet()
 		for variable in variables:
 			for edge in self.edges:
 				if edge[0] == variable:
 					children.add(edge[1])
 		return children
 
-	def ancestors(self,variables):
+	def ancestors(self, variables, includeVariables = False):
 		if type(variables) == str:
-			variables = set([variables])
+			variables = OrderedSet([variables])
 		parentsOfVariable = self.parents(variables)
 		ancestors = parentsOfVariable.copy()
 		toCheck = parentsOfVariable.copy()
@@ -47,12 +49,14 @@ class DAG:
 			if variable not in ancestors:
 				ancestors.add(variable)
 			toCheck = toCheck.union(self.parents(variable))
+		if includeVariables:
+			ancestors = ancestors.union(variables)
 		return ancestors
 
 	def descendants(self,variables):
 		if type(variables) == str:
-			variables = set([variables])
-		descendants = set()
+			variables = OrderedSet([variables])
+		descendants = OrderedSet()
 		for v in self.nodes:
 			Anv = self.ancestors(v)
 			if Anv.intersection(variables).__len__() > 0:
@@ -60,8 +64,14 @@ class DAG:
 		return descendants
 
 	def vstructures(self):
-		vstructures = set()
+		vstructures = OrderedSet()
 		for v in self.nodes:
 			if self.parents(v).__len__() > 1:
 				vstructures.add(v)
 		return vstructures
+
+	def isVstructure(self):
+		isVstructure = False
+		if self.parents(v).__len__() > 1:
+			isVstructure = True
+		return isVstructure
