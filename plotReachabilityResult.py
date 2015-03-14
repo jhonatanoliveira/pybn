@@ -10,7 +10,7 @@ def autolabel(rects,ax):
                 ha='center', va='bottom')
         i = i + 1
 
-def plotReachabilityResult(result,savefig):
+def plotReachabilityResult(result,savefig=False):
 	n_groups = len(result["reachable"])
 	fig, ax = plt.subplots()
 	index = np.arange(n_groups)
@@ -21,7 +21,10 @@ def plotReachabilityResult(result,savefig):
 
 	plt.xlabel("Independencies")
 	plt.ylabel("Number of Checks")
-	plt.title("Reachable vs i-Reachable in " + result["title"] + " - I:" + result["inaugurals"].__str__())
+	if result.has_key("inaugurals"):
+		plt.title("Reachable vs i-Reachable in " + result["title"] + " - I:" + result["inaugurals"].__str__())
+	else:
+		plt.title("Reachable vs i-Reachable in " + result["title"])
 	plt.xticks(index + bar_width, result["tests"])
 	plt.legend()
 

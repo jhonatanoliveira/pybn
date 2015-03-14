@@ -19,7 +19,6 @@ class dSeparation:
 		self.debug = debug
 
 	def inaugurals(self):
-		# Inaugural variables
 		I = OrderedSet()
 		vstructures = self.dag.vstructures()
 		XYZ = self.X.union( self.Y.union(self.Z) )
@@ -30,33 +29,30 @@ class dSeparation:
 			if Anv.intersection(V).__len__() == 0:
 				I.add(v)
 		return I
+
+	def isInauguralInActiveTrail(self,variable,anXYZandXYZ):
+		result = False
+		if variable not in anXYZandXYZ:
+			if self.dag.isVstructure(variable):
+				result = True
+		return result
 		
 	def reachable(self, consideringInaugurals = False):
 		### DEBUG
-		if self.debug:
-			print
-			print "### Running REACHABLE ###"
-			print
+		# if self.debug:
+		# 	print
+		# 	if consideringInaugurals:
+		# 		print "### Running i-REACHABLE for I(" + self.X.map.keys().__str__() + ", " + self.Y.map.keys().__str__() + "," + self.Z.map.keys().__str__() + ") ###"
+		# 	else:
+		# 		print "### Running REACHABLE for I(" + self.X.map.keys().__str__() + ", " + self.Y.map.keys().__str__() + "," + self.Z.map.keys().__str__() + ") ###"
+		# 	print
 		### -- DEBUG
 		# Phase I: insert all ancestors of Y into A
 		A = self.dag.ancestors(self.Y, True)
-
 		if consideringInaugurals:
-			# Phase II: insert all inaugurals in I
-			I = self.inaugurals()
-			### DEBUG
-			if self.debug:
-				print "I: (" + str(I.__len__()) + ")"
-				print I
-			### -- DEBUG
-			DeI = self.dag.descendants(I) # Descendants of Inaugural variables
-			Is = I.union(DeI) # Union
-			### DEBUG
-			if self.debug:
-				print "Is: (" + str(Is.__len__()) + ")"
-				print Is
-			### -- DEBUG
-
+			anXZ = self.X.union(self.Z)
+			anXZandXZ = self.dag.ancestors(anXZ,True)
+			anXYZandXYZ = anXZandXZ.union(A)
 		# Phase III: traverse active trails starting from X
 		L = OrderedSet()
 		for v in self.X:
@@ -68,43 +64,37 @@ class dSeparation:
 			(d,v) = L.pop()
 			numberOfChecks = numberOfChecks + 1
 			### DEBUG
-			if self.debug:
-				print "--- Loop ---"
-				print "Select:"
-				print (d,v)
-				print "L:"
-				print L
+			# if self.debug:
+			# 	print "--- Loop ---"
+			# 	print "Select:"
+			# 	print (d,v)
+			# 	print "L:"
+			# 	print L
 			### -- DEBUG
 			if (d,v) not in V:
 				V.add((d,v))
 				### DEBUG
-				if self.debug:
-					print "V:"
-					print V
+				# if self.debug:
+				# 	print "V:"
+				# 	print V
 				### -- DEBUG
 				if v not in self.Y:
-					if consideringInaugurals and (v in Is): #TODO: remove
-						continue
-						### DEBUG
-						if self.debug:
-							print ">>> Is this used?"
-						### -- DEBUG
 					R.add(v)
 					### DEBUG
-					if self.debug:
-						print "R:"
-						print R
+					# if self.debug:
+					# 	print "R:"
+					# 	print R
 					### -- DEBUG
 				if d == "up" and v not in self.Y:
 					for p in self.dag.parents(v):
 						if consideringInaugurals:
-							if p not in Is:
+							if not self.isInauguralInActiveTrail(p,anXYZandXYZ):
 								L.add(("up",p))
 						else:
 							L.add(("up",p))
 					for c in self.dag.children(v):
 						if consideringInaugurals:
-							if p not in Is:
+							if not self.isInauguralInActiveTrail(c,anXYZandXYZ):
 								L.add(("down",c))
 						else:
 							L.add(("down",c))
@@ -112,30 +102,21 @@ class dSeparation:
 					if v not in self.Y:
 						for c in self.dag.children(v):
 							if consideringInaugurals:
-								if p not in Is:
+								if not self.isInauguralInActiveTrail(c,anXYZandXYZ):
 									L.add(("down",c))
 							else:
 								L.add(("down",c))
 					if v in A:
 						for p in self.dag.parents(v):
-							if consideringInaugurals:
-								if p not in Is:
-									L.add(("up",p))
-								else:
-									### DEBUG
-									if self.debug:
-										print ">>> Is this used? 2"
-									### -- DEBUG
-							else:
-								L.add(("up",p))
+							L.add(("up",p))
 			### DEBUG
-			if self.debug:
-				print "L:"
-				print L
+			# if self.debug:
+			# 	print "L:"
+			# 	print L
 			### -- DEBUG
 		### DEBUG
-		if self.debug:
-			print "R:"
-			print R
+		# if self.debug:
+		# 	print "Final R (" + str(R.__len__()) + "): "
+		# 	print R
 		### -- DEBUG
 		return {"R": R, "numberOfChecks": numberOfChecks}

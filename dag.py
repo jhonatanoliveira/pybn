@@ -70,8 +70,8 @@ class DAG:
 				vstructures.add(v)
 		return vstructures
 
-	def isVstructure(self):
-		isVstructure = False
-		if self.parents(v).__len__() > 1:
-			isVstructure = True
-		return isVstructure
+	def isVstructure(self,variable):
+		result = False
+		if self.parents(variable).__len__() > 1:
+			result = True
+		return result

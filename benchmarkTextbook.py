@@ -10,6 +10,7 @@ from ordered_set import OrderedSet
 dag = DAG()
 dag.add("a","c")
 dag.add("a","d")
+dag.add("a","f")
 dag.add("b","d")
 dag.add("b","e")
 dag.add("c","f")
@@ -21,27 +22,27 @@ dag.add("g","h")
 
 result = {"title": "Kjaerulff","reachable": [], "i-reachable": [], "tests": []}
 
-dsepDag = dSeparation("c",OrderedSet([]),"g",dag)
+dsepDag = dSeparation("c",OrderedSet([]),"g",dag,True)
 result["tests"].append("I(c,{},g)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
 result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation("c",OrderedSet([]),"e",dag)
+dsepDag = dSeparation("c",OrderedSet([]),"e",dag,True)
 result["tests"].append("I(c,{},e)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
 result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation("c",OrderedSet(["g"]),"e",dag)
+dsepDag = dSeparation("c",OrderedSet(["g"]),"e",dag,True)
 result["tests"].append("I(c,g,e)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
 result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation("a",OrderedSet(["d","e"]),"g",dag)
+dsepDag = dSeparation("a",OrderedSet(["d","e"]),"g",dag,True)
 result["tests"].append("I(a,de,g)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
 result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation("a",OrderedSet(["d"]),"g",dag)
+dsepDag = dSeparation("a",OrderedSet(["d"]),"g",dag,True)
 result["tests"].append("I(a,d,g)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
 result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
@@ -64,17 +65,17 @@ dag.add("f","h")
 
 result = {"title": "Darwiche","reachable": [], "i-reachable": [], "tests": []}
 
-dsepDag = dSeparation("a",OrderedSet(["b","h"]),"e",dag)
+dsepDag = dSeparation("a",OrderedSet(["b","h"]),"e",dag,True)
 result["tests"].append("I(a,bh,e)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
 result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation("g","d","e",dag)
+dsepDag = dSeparation("g","d","e",dag,True)
 result["tests"].append("I(g,d,e)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
 result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation(OrderedSet(["a","b"]),"f",OrderedSet(["g","h"]),dag)
+dsepDag = dSeparation(OrderedSet(["a","b"]),"f",OrderedSet(["g","h"]),dag,True)
 result["tests"].append("I(ab,f,gh)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
 result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
@@ -95,37 +96,37 @@ dag.add("e","h")
 
 result = {"title": "Castillo","reachable": [], "i-reachable": [], "tests": []}
 
-dsepDag = dSeparation("e",OrderedSet([]),"g",dag)
+dsepDag = dSeparation("e",OrderedSet([]),"g",dag,True)
 result["tests"].append("I(e,{},g)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
 result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation("c",OrderedSet([]),"d",dag)
+dsepDag = dSeparation("c",OrderedSet([]),"d",dag,True)
 result["tests"].append("I(c,{},d)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
 result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation("c","g","d",dag)
+dsepDag = dSeparation("c","g","d",dag,True)
 result["tests"].append("I(c,g,d)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
 result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation("b","a","c",dag)
+dsepDag = dSeparation("b","a","c",dag,True)
 result["tests"].append("I(b,a,c)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
 result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation(OrderedSet(["c","d"]),OrderedSet([]),"e",dag)
+dsepDag = dSeparation(OrderedSet(["c","d"]),OrderedSet([]),"e",dag,True)
 result["tests"].append("I(cd,{},e)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
 result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation("f",OrderedSet(["a"]),OrderedSet(["e","h"]),dag)
+dsepDag = dSeparation("f",OrderedSet(["a"]),OrderedSet(["e","h"]),dag,True)
 result["tests"].append("I(f,a,eh)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
 result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
 
-dsepDag = dSeparation(OrderedSet(["a","c"]),OrderedSet(["d"]),OrderedSet(["h","e"]),dag)
+dsepDag = dSeparation(OrderedSet(["a","c"]),OrderedSet(["d"]),OrderedSet(["h","e"]),dag,True)
 result["tests"].append("I(ac,d,he)")
 result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
 result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])

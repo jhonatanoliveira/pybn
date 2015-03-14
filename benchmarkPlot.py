@@ -36,7 +36,5 @@ for dataset in datasets:
 		result["tests"].append("I(" +varX+ "," +varY+ "," +varZ+ ")")
 		result["reachable"].append(dsepDag.reachable()["numberOfChecks"])
 		result["i-reachable"].append(dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"])
-		result["inaugurals"].append(dsepDag.inaugurals().__len__())
-
 
 	plotReachabilityResult(result,saveFigure)
