@@ -13,10 +13,10 @@ results = []
 # csvName = "benchmarkDSepISep_medium"
 # datasets = ["hepar2","win95pts"] # Large
 # csvName = "benchmarkDSepISep_large"
-# datasets = ["andes","diabetes","link","pathfinder","pigs"] # Very Large
-# csvName = "benchmarkDSepISep_very_large"
-datasets = ["munin"] # Massive
-csvName = "benchmarkDSepISep_massive"
+datasets = ["andes","diabetes","link","pathfinder","pigs"] # Very Large
+csvName = "benchmarkDSepISep_very_large"
+# datasets = ["munin"] # Massive
+# csvName = "benchmarkDSepISep_massive"
 debug = False
 
 # *** Benchmark ***

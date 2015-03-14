@@ -30,7 +30,7 @@ class dSeparation:
 				I.add(v)
 		return I
 
-	def isInauguralInActiveTrail(self,variable,anXYZandXYZ):
+	def isInauguralInActivePath(self,variable,anXYZandXYZ):
 		result = False
 		if variable not in anXYZandXYZ:
 			if self.dag.isVstructure(variable):
@@ -88,13 +88,13 @@ class dSeparation:
 				if d == "up" and v not in self.Y:
 					for p in self.dag.parents(v):
 						if consideringInaugurals:
-							if not self.isInauguralInActiveTrail(p,anXYZandXYZ):
+							if not self.isInauguralInActivePath(p,anXYZandXYZ):
 								L.add(("up",p))
 						else:
 							L.add(("up",p))
 					for c in self.dag.children(v):
 						if consideringInaugurals:
-							if not self.isInauguralInActiveTrail(c,anXYZandXYZ):
+							if not self.isInauguralInActivePath(c,anXYZandXYZ):
 								L.add(("down",c))
 						else:
 							L.add(("down",c))
@@ -102,7 +102,7 @@ class dSeparation:
 					if v not in self.Y:
 						for c in self.dag.children(v):
 							if consideringInaugurals:
-								if not self.isInauguralInActiveTrail(c,anXYZandXYZ):
+								if not self.isInauguralInActivePath(c,anXYZandXYZ):
 									L.add(("down",c))
 							else:
 								L.add(("down",c))
