@@ -50,6 +50,9 @@ class DAG:
 			results.extend(l)
 		return OrderedSet(results)
 
+	def preLoadTransitiveClosure(self):
+		self.transitiveClosureMap = self.transitiveClosure()
+
 	def transitiveClosure(self):
 		topoSort = self.topologicalSort()
 		topoSort.reverse()

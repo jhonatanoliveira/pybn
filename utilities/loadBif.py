@@ -36,5 +36,5 @@ def loadBif(bifFilePath):
 				for parent in tail:
 					for child in head:
 						dag.add(parent,child)
-
+	dag.preLoadTransitiveClosure()
 	return dag

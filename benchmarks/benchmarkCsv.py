@@ -20,8 +20,7 @@ csvName = "benchmarkDSepISep_medium"
 # csvName = "benchmarkDSepISep_massive"
 # datasets = ["diabetes"] # Diabetes
 # csvName = "benchmarkDSepISep_diabetes"
-numExperiments = 1000
-
+numExperiments = 50
 # *** Benchmark ***
 
 for dataset in datasets:
