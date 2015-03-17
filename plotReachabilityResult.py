@@ -25,7 +25,7 @@ def plotReachabilityResult(result,savefig=False):
 		plt.title("Reachable vs i-Reachable in " + result["title"] + " - I:" + result["inaugurals"].__str__())
 	else:
 		plt.title("Reachable vs i-Reachable in " + result["title"])
-	plt.xticks(index + bar_width, result["tests"])
+	plt.xticks(index + bar_width, result["test"])
 	plt.legend()
 
 	plt.ylim([0,max(result["reachable"] + result["i-reachable"]) + 0.3*max(result["reachable"] + result["i-reachable"])])

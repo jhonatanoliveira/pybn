@@ -1,9 +1,10 @@
 from dag import DAG
 from dseparation import dSeparation
+from iseparation import iSeparation
 from plotReachabilityResult import *
 from loadBif import *
 from random import *
-from time import *
+from time import time
 import csv
 from ordered_set import OrderedSet
 
@@ -13,27 +14,37 @@ results = []
 # csvName = "benchmarkDSepISep_medium"
 # datasets = ["hepar2","win95pts"] # Large
 # csvName = "benchmarkDSepISep_large"
-datasets = ["andes","diabetes","link","pathfinder","pigs"] # Very Large
-csvName = "benchmarkDSepISep_very_large"
+# datasets = ["andes","link","pathfinder","pigs"] # Very Large
+# csvName = "benchmarkDSepISep_very_large"
 # datasets = ["munin"] # Massive
 # csvName = "benchmarkDSepISep_massive"
-debug = False
+datasets = ["diabetes"] # Diabetes
+csvName = "benchmarkDSepISep_diabetes"
+numExperiments = 1000
 
 # *** Benchmark ***
 
 for dataset in datasets:
 
 	### DEBUG
-	print
-	print "Initializing " + dataset + " ..."
-	print
+	# print
+	# print "Initializing " + dataset + " ..."
+	# print
 	### --- DEBUG
 
 	dag = loadBif("datasets/" + dataset + ".bif")
 
-	for i in range(0,500):
+	sumInaugurals = 0
+	sumDsep = 0
+	sumTimeAnY = 0
+	sumTimeDsep = 0
+	sumIsep = 0
+	sumTimeAnXYZ = 0
+	sumTimeIsep = 0
+
+	for i in range(0,numExperiments):
 		### DEBUG
-		print "Testing independence #" + str(i)
+		# print "Testing independence #" + str(i)
 		### --- DEBUG
 
 		result = {}
@@ -50,27 +61,69 @@ for dataset in datasets:
 		varZ = choice(allNodes)
 		allNodes.remove(varZ)
 
-		dsepDag = dSeparation(OrderedSet([varX]),OrderedSet([varY]),OrderedSet([varZ]),dag, debug)
-		result["test"] = "I(" +varX+ "," +varY+ "," +varZ+ ")"
-		dSepTime0 = time()
-		numberOfChecksReachable = dsepDag.reachable()["numberOfChecks"]
-		dSepTime1 = time()
-		iSepTime0 = time()
-		numberOfChecksIReachable = dsepDag.reachable(consideringInaugurals = True)["numberOfChecks"]
-		iSepTime1 = time()
-		result["d-sep"] = numberOfChecksReachable
-		result["i-sep"] = numberOfChecksIReachable
-		percentage = round(float(numberOfChecksIReachable)/float(numberOfChecksReachable), 4)
-		percentage = percentage * 100
-		result["saving"] = format(percentage,".2f")
-		result["dSepTime"] = dSepTime1 - dSepTime0
-		result["iSepTime"] = iSepTime1 -iSepTime0
 
-		results.append(result)
+
+		# Testing independence
+		dSep = dSeparation(OrderedSet([varX]),OrderedSet([varY]),OrderedSet([varZ]),dag)
+
+		# d-Separation
+		dSepTime0 = time()
+		dSep = dSep.reachable()
+		dSepTime1 = time()
+		result["dSepTime"] = dSepTime1 - dSepTime0
+		result["d-sep"] = dSep["numberOfChecks"]
+		result["timeAnY"] = dSep["timeAnY"]
+
+
+		# Testing independence
+		iSep = iSeparation(OrderedSet([varX]),OrderedSet([varY]),OrderedSet([varZ]),dag)
+		
+		# i-Separation
+		iSepTime0 = time()
+		iSep = iSep.reachable()
+		iSepTime1 = time()
+		result["iSepTime"] = iSepTime1 -iSepTime0
+		result["i-sep"] = iSep["numberOfChecks"]
+		result["timeAnXYZ"] = iSep["timeAnXYZ"]
+		
+
+
+		# Comparisons between them
+		result["saving"] = (1 - float(iSep["numberOfChecks"])/float(dSep["numberOfChecks"])) * 100
+		result["time-saving"] = result["iSepTime"]/result["dSepTime"]
+
+		# Inaugurals
+		# result["inaugurals"] = dSep.inaugurals().__len__()
+		result["inaugurals"] = 0
+
+
+
+		# Sum values
+		sumInaugurals = sumInaugurals + result["inaugurals"]
+		sumDsep = sumDsep + result["d-sep"]
+		sumTimeAnY = sumTimeAnY + result["timeAnY"]
+		sumTimeDsep = sumTimeDsep + result["dSepTime"]
+		sumIsep = sumIsep + result["i-sep"]
+		sumTimeAnXYZ = sumTimeAnXYZ + result["timeAnXYZ"]
+		sumTimeIsep = sumTimeIsep + result["iSepTime"]
+
+		# results.append(result)
+
+	results.append({"name": dataset.capitalize(),
+    				"inaugurals": float(sumInaugurals)/numExperiments,
+    				"d-sep": sumDsep,
+    				"timeAnY": sumTimeAnY,
+    				"dSepTime": sumTimeDsep,
+    				"i-sep": sumIsep,
+    				"timeAnXYZ": sumTimeAnXYZ,
+    				"iSepTime": sumTimeIsep,
+    				"saving": round((1 - float(sumIsep)/float(sumDsep)) * 100),
+    				"time-saving": round((1 - float(sumTimeIsep)/float(sumTimeDsep)) * 100)
+    			})
 
 # Save the CSV file
-with open("results/	" + csvName + '.csv', 'w') as csvfile:
-    fieldnames = ['name', 'test', 'd-sep', 'i-sep', 'saving', 'dSepTime', 'iSepTime']
+with open("results/%s.csv" %(csvName), "w") as csvfile:
+    fieldnames = ["name", "inaugurals", "d-sep", "timeAnY", "dSepTime", "i-sep", "timeAnXYZ", "iSepTime", "saving", "time-saving"]
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
     writer.writerows(results)
