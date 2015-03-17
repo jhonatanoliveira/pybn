@@ -5,6 +5,7 @@ class DAG:
 	def __init__(self):
 		self.variables = OrderedSet()
 		self.edges = OrderedSet()
+		self.transitiveClosureMap = {}
 
 	def addVariable(self,variable):
 		self.variables.add(variable)
@@ -40,17 +41,14 @@ class DAG:
 		return children
 
 	def ancestors(self, variables):
-		if type(variables) == str:
-			variables = OrderedSet([variables])
-		parentsOfVariable = self.parents(variables)
-		ancestors = parentsOfVariable.copy()
-		toCheck = parentsOfVariable.copy()
-		while toCheck.__len__() > 0:
-			variable = toCheck.pop()
-			if variable not in ancestors:
-				ancestors.add(variable)
-			toCheck = toCheck.union(self.parents(variable))
-		return ancestors
+		if len(self.transitiveClosureMap) == 0:
+			self.transitiveClosureMap = self.transitiveClosure()
+		results = []
+		for variable in variables:
+			varInd = self.transitiveClosureMap["topologicalSort"].index(variable)
+			l = [key for key in self.transitiveClosureMap["maps"] if (key != variable and self.transitiveClosureMap["maps"][key][varInd] == True)]
+			results.extend(l)
+		return OrderedSet(results)
 
 	def transitiveClosure(self):
 		topoSort = self.topologicalSort()
@@ -67,7 +65,7 @@ class DAG:
 			for parent in self.parents(variable):
 				result[parent] = result[parent] | result[variable]
 
-		return {"transitiveClosure": result, "topologicalSort": topoSort}
+		return {"maps": result, "topologicalSort": topoSort}
 
 	def roots(self):
 		left = []

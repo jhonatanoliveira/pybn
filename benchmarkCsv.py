@@ -10,16 +10,16 @@ from ordered_set import OrderedSet
 
 ## CONTROL ##
 results = []
-# datasets = ["alarm","barley","child","hailfinder","insurance","mildew","water"] # Medium
-# csvName = "benchmarkDSepISep_medium"
+datasets = ["alarm","barley","child","hailfinder","insurance","mildew","water"] # Medium
+csvName = "benchmarkDSepISep_medium"
 # datasets = ["hepar2","win95pts"] # Large
 # csvName = "benchmarkDSepISep_large"
 # datasets = ["andes","link","pathfinder","pigs"] # Very Large
 # csvName = "benchmarkDSepISep_very_large"
 # datasets = ["munin"] # Massive
 # csvName = "benchmarkDSepISep_massive"
-datasets = ["diabetes"] # Diabetes
-csvName = "benchmarkDSepISep_diabetes"
+# datasets = ["diabetes"] # Diabetes
+# csvName = "benchmarkDSepISep_diabetes"
 numExperiments = 1000
 
 # *** Benchmark ***
@@ -50,16 +50,16 @@ for dataset in datasets:
 		result = {}
 		result["name"] = dataset.capitalize()
 
-		allNodes = [node for node in dag.nodes]
+		allVariables = [node for node in dag.variables]
 		# varX = "nedbarea"
-		varX = choice(allNodes)
-		allNodes.remove(varX)
+		varX = choice(allVariables)
+		allVariables.remove(varX)
 		# varY = "markgrm"
-		varY = choice(allNodes)
-		allNodes.remove(varY)
+		varY = choice(allVariables)
+		allVariables.remove(varY)
 		# varZ = "dgv5980"
-		varZ = choice(allNodes)
-		allNodes.remove(varZ)
+		varZ = choice(allVariables)
+		allVariables.remove(varZ)
 
 
 
