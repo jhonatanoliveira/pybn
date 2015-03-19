@@ -1,0 +1,1373 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"var",
+				"varName"
+			],
+			[
+				"split",
+				"splitLine"
+			],
+			[
+				"res",
+				"result"
+			],
+			[
+				"ace",
+				"ancestors"
+			],
+			[
+				"num",
+				"numExperiments"
+			],
+			[
+				"ex",
+				"experiment"
+			],
+			[
+				"exper",
+				"experiment"
+			],
+			[
+				"An",
+				"AnY"
+			],
+			[
+				"resul",
+				"results"
+			],
+			[
+				"top",
+				"topoSort"
+			],
+			[
+				"topo",
+				"topologicalSort"
+			],
+			[
+				"pare",
+				"parent"
+			],
+			[
+				"paren",
+				"parents"
+			],
+			[
+				"bi",
+				"bitarrays"
+			],
+			[
+				"bit",
+				"bitarray"
+			],
+			[
+				"in",
+				"incomingToM"
+			],
+			[
+				"eg",
+				"edges"
+			],
+			[
+				"edg",
+				"edges"
+			],
+			[
+				"sumT",
+				"sumTimeDsep"
+			],
+			[
+				"sumD",
+				"sumDsep"
+			],
+			[
+				"dSep",
+				"dSepAns"
+			],
+			[
+				"reac",
+				"reachables"
+			],
+			[
+				"an",
+				"anXYZ"
+			],
+			[
+				"_time",
+				"_timeAnY0"
+			],
+			[
+				"time",
+				"timeAnY1"
+			],
+			[
+				"sumDs",
+				"sumTimeDsep"
+			],
+			[
+				"timeAn",
+				"timeAnY"
+			],
+			[
+				"write",
+				"writerows"
+			],
+			[
+				"resu",
+				"result"
+			],
+			[
+				"a",
+				"anXYZ"
+			],
+			[
+				"chil",
+				"child"
+			],
+			[
+				"varia",
+				"variable"
+			],
+			[
+				"is",
+				"isInauguralInActiveTrail"
+			],
+			[
+				"dsep",
+				"dSepTime1"
+			],
+			[
+				"dsepT",
+				"dSepTime0"
+			],
+			[
+				"data",
+				"dataset"
+			],
+			[
+				"csv",
+				"csvName"
+			],
+			[
+				"numer",
+				"numberOfChecksIReachable"
+			],
+			[
+				"numb",
+				"numberOfChecksReachable"
+			],
+			[
+				"datase",
+				"dataset"
+			],
+			[
+				"head",
+				"head"
+			],
+			[
+				"hea",
+				"head"
+			],
+			[
+				"til",
+				"tailFlag"
+			],
+			[
+				"spli",
+				"splitLine"
+			],
+			[
+				"bif",
+				"bifFile"
+			],
+			[
+				"bar",
+				"bar_width"
+			],
+			[
+				"dse",
+				"dsepDag"
+			],
+			[
+				"v",
+				"vstructures"
+			],
+			[
+				"pr",
+				"print"
+			],
+			[
+				"variab",
+				"variable"
+			],
+			[
+				"edge",
+				"edge"
+			],
+			[
+				"ed",
+				"edge"
+			],
+			[
+				"pop",
+				"populationId"
+			],
+			[
+				"rand",
+				"randomSong"
+			],
+			[
+				"sele",
+				"selectedOscilator"
+			],
+			[
+				"poss",
+				"possibleOscilators"
+			],
+			[
+				"os",
+				"oscType"
+			],
+			[
+				"select",
+				"selectAll"
+			],
+			[
+				"svg",
+				"svgDomId"
+			],
+			[
+				"das",
+				"dashedDNs"
+			],
+			[
+				"dashe",
+				"dashedDNsGroup"
+			],
+			[
+				"note",
+				"noteId"
+			],
+			[
+				"not",
+				"notesForNotebook"
+			],
+			[
+				"notes",
+				"notesForNotebook"
+			],
+			[
+				"dia",
+				"diagnosticId"
+			],
+			[
+				"diagn",
+				"diagnostics"
+			],
+			[
+				"n",
+				"numberOfLasDays"
+			],
+			[
+				"nu",
+				"numberOfTopSymptoms"
+			],
+			[
+				"re",
+				"registerHelper"
+			],
+			[
+				"getMo",
+				"getMostAndAllPossibleDiseases"
+			],
+			[
+				"all",
+				"allFoundSymptomsCountings"
+			],
+			[
+				"inde",
+				"indexOfMax"
+			],
+			[
+				"max",
+				"maxValue"
+			],
+			[
+				"sym",
+				"symptomIndex"
+			],
+			[
+				"allF",
+				"allFoundSymptomsCountings"
+			],
+			[
+				"symp",
+				"symptomIndex"
+			],
+			[
+				"l",
+				"li	Tag"
+			],
+			[
+				"no",
+				"notebookName"
+			],
+			[
+				"getBa",
+				"getBackgroundColorFill"
+			],
+			[
+				"curr",
+				"currentStroke"
+			],
+			[
+				"mou",
+				"mouseY"
+			],
+			[
+				"cu",
+				"currentFill"
+			],
+			[
+				"daa",
+				"dataFromSelectedTool"
+			],
+			[
+				"get",
+				"getDataFromSelectedTool"
+			],
+			[
+				"da",
+				"dataFromSelectedTool"
+			],
+			[
+				"can",
+				"canvasWidth"
+			],
+			[
+				"canvas",
+				"canvasHeight"
+			],
+			[
+				"click",
+				"clickedOnCanvas"
+			],
+			[
+				"cli",
+				"clickedOnCanvas"
+			],
+			[
+				"ca",
+				"canvasheight"
+			],
+			[
+				"mous",
+				"mouseX"
+			],
+			[
+				"canva",
+				"canvasWidth"
+			],
+			[
+				"angle",
+				"angleStop"
+			],
+			[
+				"pi",
+				"PI"
+			],
+			[
+				"dra",
+				"drawGivenData"
+			],
+			[
+				"dar",
+				"drawGivenData"
+			],
+			[
+				"text",
+				"textColorSlider"
+			],
+			[
+				"exa",
+				"examId"
+			],
+			[
+				"set",
+				"settingId"
+			],
+			[
+				"has",
+				"hasMinimumMatchingSymptom"
+			],
+			[
+				"count",
+				"countingAllPossibleDiseases"
+			],
+			[
+				"countin",
+				"countingOfMostProbableDisease"
+			],
+			[
+				"cke",
+				"checkedSymptoms"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"dise",
+				"diseaseId"
+			],
+			[
+				"s",
+				"symptoms"
+			],
+			[
+				"pre",
+				"preventDefault"
+			],
+			[
+				"Obj",
+				"ObjectTable"
+			],
+			[
+				"Obje",
+				"ObjectMap"
+			],
+			[
+				"upda",
+				"updateVariablesInformations"
+			],
+			[
+				"deci",
+				"decideKeysWhichHasToSumOne"
+			],
+			[
+				"allP",
+				"allPossibleCombination"
+			],
+			[
+				"oter",
+				"otherTable"
+			],
+			[
+				"other",
+				"otherTable"
+			],
+			[
+				"cop",
+				"copyOfRowInOtherTable"
+			],
+			[
+				"rowIn",
+				"rowInThisTable"
+			],
+			[
+				"newRow",
+				"newRowConditioningVariables"
+			],
+			[
+				"newRo",
+				"newRowQueryVariables"
+			],
+			[
+				"conditioningStat",
+				"conditioningStatesInOtherTable"
+			],
+			[
+				"conditioningSt",
+				"conditioningStatesInThisTable"
+			],
+			[
+				"querySta",
+				"queryStatesInOtherTable"
+			],
+			[
+				"row",
+				"rowInOtherTable"
+			],
+			[
+				"va",
+				"variableD"
+			],
+			[
+				"chec",
+				"checkedSymptoms"
+			],
+			[
+				"che",
+				"checkedSymptoms"
+			],
+			[
+				"user",
+				"userId"
+			],
+			[
+				"M",
+				"Mongo"
+			],
+			[
+				"valu",
+				"value2"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"colo",
+				"Color Picker"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"upda",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"todo",
+				"TodoReview: Project Files"
+			],
+			[
+				"Tpd",
+				"TodoReview: Project Files"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"CC",
+				"Color Convert: convert"
+			],
+			[
+				"color",
+				"Color Convert: convert"
+			],
+			[
+				"Color",
+				"Color Convert: convert"
+			],
+			[
+				"Color	",
+				"Color Convert: convert"
+			],
+			[
+				"pic",
+				"Color Picker"
+			],
+			[
+				"colorp",
+				"Color Picker"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"pick",
+				"Color picker"
+			],
+			[
+				"picker",
+				"Color picker"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag"
+	],
+	"file_history":
+	[
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/guesses.txt",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Mohammed Alghadhban_457779_assignsubmission_file_Assignment3.1.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Mohammed Alghadhban_457779_assignsubmission_file_Assignment3.2.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Mitchell McNish_457810_assignsubmission_file_assignment 3.xcodeproj.zip",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Mitchell McNish_457810_assignsubmission_file_asignment3.xcodeproj.zip",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Mina Gad_457764_assignsubmission_file_Assignment3.2.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Mina Gad_457764_assignsubmission_file_Assignment 3.1.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Michael Thatcher_457800_assignsubmission_file_Assignment 3.2.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Michael Thatcher_457800_assignsubmission_file_Assignment 3.1.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Michael Outerbridge_457762_assignsubmission_file_Assignment3part1.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Michael Outerbridge_457762_assignsubmission_file_assignment 3 part 2.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Mfonisoabasi James_457796_assignsubmission_file_Assignment 3.cpp",
+		"/Users/jhonatanoliveira/Downloads/win95pts.dsc",
+		"/Users/jhonatanoliveira/Downloads/win95pts.net",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Longwei Han_457857_assignsubmission_file_Assignment 3, question 1.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Matthew Vician_457739_assignsubmission_file_Assignment#3 Matthew Vician .cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Maxx Hordichuk_457858_assignsubmission_file_hordichm_assig3_2.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Maxx Hordichuk_457858_assignsubmission_file_hordichm_assig3_1.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/outputfile.txt",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Longwei Han_457857_assignsubmission_file_Assignment3, question2.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Linda Kuruvila_457776_assignsubmission_file_Assignment 3-2-1.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Linda Kuruvila_457776_assignsubmission_file_Assignment 3-1-1.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Lei Nie_457769_assignsubmission_file_assinment3.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Lei Nie_457769_assignsubmission_file_assingment3.2.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Kyle Hungle_457839_assignsubmission_file_Source2.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Kyle Hungle_457839_assignsubmission_file_Source.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/output.txt",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/data.txt",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Kian Blanchette_457771_assignsubmission_file_TauntingTheComputer.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Kian Blanchette_457771_assignsubmission_file_MathHardInDaPaint.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Julie Ziemer_457754_assignsubmission_file_Assignment 3 math quiz.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Kennedy Dollard_457859_assignsubmission_file_Part 1 Assignment 3.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Julie Ziemer_457754_assignsubmission_file_Assignment 3 Guess a Number.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Assignment 3 User_Number.txt",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Juan Echavarria_457820_assignsubmission_file_2015-03-10_CS110_Ass_3_Q_2.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Juan Echavarria_457820_assignsubmission_file_2015-03-10_CS110_Ass_3_Q_1.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Joshua Leidl_457747_assignsubmission_file_Part 2.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Joshua Leidl_457747_assignsubmission_file_Part 1.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Joshua Ajakaiye_457790_assignsubmission_file_Mathstest.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/guess.txt",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/guessedNumbers.txt",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Joshua Ajakaiye_457790_assignsubmission_file_Guesses.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Joseph Warren_457746_assignsubmission_file_3-2.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Joseph Warren_457746_assignsubmission_file_3-1.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Icon",
+		"/Users/jhonatanoliveira/_Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Joseph Warren_457746_assignsubmission_file_3-1.cpp",
+		"/Users/jhonatanoliveira/_Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Joseph Egyir_457798_assignsubmission_file_Assignment 3.sln",
+		"/Users/jhonatanoliveira/_Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Joseph Ashworth_457854_assignsubmission_file_Assignment_3_p2.cpp",
+		"/Users/jhonatanoliveira/_Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Joseph Ashworth_457854_assignsubmission_file_Assignment_3_p1.cpp",
+		"/Users/jhonatanoliveira/_Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/User_Guesses.txt",
+		"/Users/jhonatanoliveira/_Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Jinze Xue_457852_assignsubmission_file_jinze  xue 200353480.cpp",
+		"/Users/jhonatanoliveira/_Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/John Richards_457812_assignsubmission_file_Assignment8 Part2.cpp",
+		"/Users/jhonatanoliveira/_Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/John Richards_457812_assignsubmission_file_Assignment8 Part1 .cpp",
+		"/Users/jhonatanoliveira/_Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Jinze Xue_457852_assignsubmission_file_Jinze Xue 200353480.cpp",
+		"/Users/jhonatanoliveira/_Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Icon",
+		"/Users/jhonatanoliveira/Google Drive/research/uregina/UAI15 - Simplifying d-separation in BNs/material/experimental_results/source code/benchmarkPlot.py",
+		"/Users/jhonatanoliveira/Google Drive/research/uregina/UAI15 - Simplifying d-separation in BNs/material/experimental_results/source code/benchmarkTextbook.py",
+		"/Users/jhonatanoliveira/Google Drive/research/uregina/UAI15 - Simplifying d-separation in BNs/material/experimental_results/source code/datasets/alarm.bif",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/core/dag.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/core/iseparation.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/core/dseparation.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/utilities/loadBif.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/setup.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/README.md",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/__init__.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/benchmarks/benchmarkCsv.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/benchmarks/benchmarkCsvMultipleTimes.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/__init__.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/__main__.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/__init__.py",
+		"/Users/jhonatanoliveira/Downloads/bif2cnf",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/utilities/__init__.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/datasets/__init__.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/benchmarks/__init__.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/core/__init__.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/loadBif.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/iseparation.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/benchmarkCsv.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/benchmarkCsvMultipleTimes.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/dag.py",
+		"/Users/jhonatanoliveira/Google Drive/www/archieved/videoplus/informacoes_acesso_NOVO_servidor.txt",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/benchmarkTextbook.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/dependencies.txt",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/ordered_set.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/dseparation.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/benchmarkPlot.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/plotReachabilityResult.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/cython/benchmarkCsv.pyx",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/cython/benchmarkPlot.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/cython/setup.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/cython/benchmarkCsv.c",
+		"/Users/jhonatanoliveira/Downloads/toandre.txt",
+		"/Users/jhonatanoliveira/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/benchmarkDsepISep.csv",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/datasets/benchmarkCsv.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/datasets/textbookDags.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/datasets/barley.bif",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/out.txt",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/datasets/alarm.bif",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/testBif.py",
+		"/Users/jhonatanoliveira/Downloads/asia.bif",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/test.py",
+		"/Users/jhonatanoliveira/Downloads/Kjarrulff.txt",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Julie Ziemer_451915_assignsubmission_file_Assignment 2.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Longwei Han_451859_assignsubmission_file_Assignment2.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Michael Thatcher_451841_assignsubmission_file_Assignment_2_Michael_Thatcher.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Joseph Warren_451896_assignsubmission_file_assignment2.sln",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Joseph Egyir_451824_assignsubmission_file_Assignment 2.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Joseph Ashworth_451843_assignsubmission_file_Assignment 2 Code.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/JiaAn Nie_451857_assignsubmission_file_Assignmenttwo.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Jessica Shepherd_451922_assignsubmission_file_Assignment 2.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Jessica Huber_451848_assignsubmission_file_assignment2- Jessica Huber.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Mitchell McNish_451813_assignsubmission_file_assignment #2.cp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Mohammed Alzughaibi_451917_assignsubmission_file_main.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Mohammed Alghadhban_451800_assignsubmission_file_Assignment2.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Mina Gad_451908_assignsubmission_file_Assignment2.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Maxx Hordichuk_451873_assignsubmission_file_assignment2maxxh.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Michael Outerbridge_451876_assignsubmission_file_CS assignment 2.sln",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Mfonisoabasi James_451836_assignsubmission_file_Assignment2.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Kennedy Dollard_451900_assignsubmission_file_assignment 2 code.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Kian Blanchette_451905_assignsubmission_file_theareacode.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Matthew Vician_451799_assignsubmission_file_Source.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Manraj Kalkat_451901_assignsubmission_file_assign2.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Kyle Hungle_451878_assignsubmission_file_Source.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Linda Kuruvila_451889_assignsubmission_file_Assignment 2.cpp.vcxproj",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Juan Echavarria_451885_assignsubmission_file_2015-02-15_CS110_Ass_2.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Joshua Ajakaiye_451849_assignsubmission_file_CanadianPhoneNumbers.cpp",
+		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Joshua Leidl_451868_assignsubmission_file_Assignment 2 - Josh Leidl.cpp"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"",
+			"/Users/jhonatanoliveira/Google Drive/www/deliciasdafabrica/app/Plugin/Portifolio",
+			"/Users/jhonatanoliveira/www/darwiniannetworks/app/View/Traits",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			".txt",
+			"qt1",
+			"preLoadTransitiveClosure",
+			"Y",
+			"t1",
+			"AnY",
+			"anXZ",
+			"t",
+			"dt",
+			"t",
+			"AnXZ",
+			"bitarr",
+			"AnXYZ",
+			"\"time-saving\"",
+			"	    				\"",
+			"\"saving\"",
+			"results",
+			"experiment",
+			"ancest",
+			"ancestor",
+			"ances",
+			"Nodes",
+			"nodes",
+			".nodes",
+			"dag.nodes",
+			".transitiveClosure",
+			"\"transitiveClosure\"",
+			"transitiveClosure",
+			"{}",
+			"_l",
+			"_m",
+			"_n",
+			"addvariable",
+			"addVariable",
+			"node",
+			"Node",
+			"node",
+			"Node",
+			"node",
+			"Node",
+			"node",
+			"nodes",
+			"edges",
+			"set",
+			"sum",
+			"result[\"timeAnY\"]",
+			"dsepDag",
+			"consideringInaugurals",
+			"result[\"i-reachable\"]",
+			"\"tests\"",
+			"d",
+			"[\"tests\"]",
+			"tests",
+			"dsepDag",
+			"consideringInaugurals = True",
+			"dag,True",
+			"\"R\"",
+			"debug",
+			"dSeparation",
+			"numberOfChecks",
+			"_timeAnY",
+			"c",
+			"andXYZ",
+			"anXYZandXYZ",
+			"isInauguralInActivePath",
+			"p",
+			"v",
+			"c",
+			"p",
+			"numberOfChecks",
+			"timeAnY1",
+			"timeAnY0",
+			"result[\"saving\"]",
+			"sumIsep",
+			"'",
+			"timeAnY1",
+			"timeAnY0",
+			"dSep[",
+			"dsep",
+			"isInauguralInActiveTrail",
+			"anXYZandXYZ",
+			"__str__()",
+			",dag)",
+			"consideringInaugurals = True",
+			".reachable(",
+			"v",
+			"seld",
+			"self.isInauguralInActiveTrail",
+			"isVstructure",
+			"isVs",
+			"isInauguralInActiveTrail",
+			"p",
+			"set",
+			"is_iterable",
+			"interse",
+			"inter",
+			"inters",
+			"union",
+			"is_iterable",
+			"__version__",
+			"SLICE_ALL",
+			".iReachable()",
+			"IReachable",
+			"iReachable",
+			"inaugurals",
+			"AnY",
+			"L = L.add((\"up\",v))",
+			"L = L.union( set([ (\"up\",v) ]) )",
+			"mod_nmin",
+			"numberOfChecks",
+			"my_dict",
+			"[]",
+			"append",
+			"if printTextbookDags:",
+			" in datasets",
+			")\n",
+			",result",
+			".dag.",
+			"expigens",
+			"i-Reacha",
+			"Reacha",
+			"i-Reach",
+			"i-Reac",
+			"if self.debug",
+			"inaug",
+			"inaugurals",
+			"MVS",
+			"tail"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"loadTransitiveClosure",
+			"OrderedSet",
+			",",
+			"Bill",
+			"",
+			"rgb(207,198,160)",
+			"Photos",
+			"Photo",
+			"photo",
+			"photos",
+			"traits",
+			"trait",
+			"erait",
+			"Trait",
+			"Traits",
+			"Trait",
+			"traits",
+			"trait",
+			"traits",
+			"Traits",
+			"Trait",
+			"http://menuapp.flodev2.com/menuapp_admin",
+			"http://7a71c02a.ngrok.com/menuapp_admin/",
+			"\"",
+			"sqlite3",
+			"accordion-body collapse"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 100.0
+	},
+	"project": "pydag.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"dnm",
+				"models/darwinianNetworksModel.js"
+			],
+			[
+				"router",
+				"router.js"
+			],
+			[
+				"newdis",
+				"client/templates/diseases/newDisease.html"
+			],
+			[
+				"newdise",
+				"client/templates/diseases/newDisease.js"
+			],
+			[
+				"diseas",
+				"client/templates/diseases/diseases.html"
+			],
+			[
+				"symp",
+				"client/templates/symptoms/symptoms.html"
+			],
+			[
+				"nav",
+				"client/templates/navigation.html"
+			],
+			[
+				"route",
+				"router.js"
+			],
+			[
+				"newdia",
+				"client/templates/diagnostics/newDiagnostic.js"
+			],
+			[
+				"rout",
+				"router.js"
+			],
+			[
+				"diagn",
+				"client/templates/diagnostics/diagnostics.js"
+			],
+			[
+				"diag",
+				"client/templates/diagnostics/diagnostics.html"
+			],
+			[
+				"sett",
+				"client/templates/settings/settings.html"
+			],
+			[
+				"diagnost",
+				"client/templates/diagnostics/diagnostics.js"
+			],
+			[
+				"diagnos",
+				"client/templates/diagnostics/diagnostics.html"
+			],
+			[
+				"mo",
+				"models.js"
+			],
+			[
+				"disea",
+				"client/templates/diseases/diseases.html"
+			],
+			[
+				"model",
+				"models.js"
+			],
+			[
+				"newdi",
+				"client/templates/diseases/newDisease.html"
+			],
+			[
+				"home",
+				"client/templates/home/home.html"
+			],
+			[
+				"bootstr",
+				"client/js/core/bootstrap.min.js"
+			],
+			[
+				"boot",
+				"client/js/core/bootstrap.min.css"
+			],
+			[
+				"navba",
+				"client/templates/navs/navbar.html"
+			],
+			[
+				"notebook",
+				"models/notebooks.js"
+			],
+			[
+				"aff",
+				"client/templates/navs/affix.html"
+			],
+			[
+				"di",
+				"client/templates/diagnostics/diagnostics.html"
+			],
+			[
+				"dise",
+				"client/templates/diseases/diseases.html"
+			],
+			[
+				"rou",
+				"router.js"
+			],
+			[
+				"newdiagn",
+				"client/templates/diagnostics/newDiagnostic.js"
+			],
+			[
+				"newdisea",
+				"client/templates/diseases/newDisease.js"
+			],
+			[
+				"new",
+				"client/templates/diseases/newDisease.html"
+			],
+			[
+				"main",
+				"client/js/main.js"
+			],
+			[
+				"sym",
+				"client/templates/symptoms/symptoms.html"
+			],
+			[
+				"template",
+				"client/templates/templatesHelpers.js"
+			],
+			[
+				"mai",
+				"server/main.js"
+			],
+			[
+				"newdiag",
+				"client/templates/diagnostics/newDiagnostic.js"
+			],
+			[
+				"navi",
+				"client/templates/navigation.html"
+			],
+			[
+				"mode",
+				"models.js"
+			],
+			[
+				"view",
+				"client/templates/diagnostics/viewDiagnostic.html"
+			],
+			[
+				"boo",
+				"client/js/bootbox.min.js"
+			],
+			[
+				"om",
+				"libs/ObjectMap.js"
+			],
+			[
+				"util",
+				"libs/utils.js"
+			],
+			[
+				"run",
+				"runExample.js"
+			],
+			[
+				"viewd",
+				"client/templates/diagnostics/viewDiagnostic.html"
+			],
+			[
+				"templa",
+				"client/templates/templatesHelpers.js"
+			],
+			[
+				"dis",
+				"client/templates/diseases/diseases.html"
+			],
+			[
+				"viewdiagn",
+				"client/templates/diagnostics/viewDiagnostic.html"
+			],
+			[
+				"newd",
+				"client/templates/diagnostics/newDiagnostic.js"
+			],
+			[
+				"main.",
+				"server/main.js"
+			],
+			[
+				"main.css",
+				"client/css/main.css"
+			],
+			[
+				"na",
+				"client/templates/navigation.html"
+			],
+			[
+				"modl",
+				"models.js"
+			],
+			[
+				"not",
+				"client/templates/notAccess.html"
+			],
+			[
+				"inde",
+				"client/index.html"
+			],
+			[
+				"p.",
+				"libs/p.js"
+			],
+			[
+				"defa",
+				"app/View/Themed/Amoeba/Layouts/default.ctp"
+			],
+			[
+				"sty",
+				"app/View/Themed/Amoeba/webroot/css/style.css"
+			],
+			[
+				"boots.css",
+				"app/View/Themed/Amoeba/webroot/css/bootstrap.css"
+			],
+			[
+				"def",
+				"app/View/Themed/Amoeba/Layouts/default.ctp"
+			],
+			[
+				"lessc.inc.php",
+				"app/Plugin/Croogo/Vendor/lessphp/lessc.inc.php"
+			],
+			[
+				"defau.css",
+				"app/View/Themed/Amoeba/webroot/css/skin/default.css"
+			],
+			[
+				"style",
+				"app/View/Themed/Amoeba/webroot/css/style.css"
+			],
+			[
+				"default.css",
+				"app/View/Themed/Amoeba/webroot/css/skin/default.css"
+			],
+			[
+				"defa.css",
+				"app/View/Themed/Amoeba/webroot/css/skin/default.css"
+			],
+			[
+				"first",
+				"app/Plugin/FirstPageDns/Controller/FirstPageDnsController.php"
+			],
+			[
+				"defaul",
+				"app/View/Themed/Amoeba/Layouts/default.ctp"
+			],
+			[
+				"croogoa",
+				"app/Plugin/Croogo/Controller/CroogoAppController.php"
+			],
+			[
+				"appcontr",
+				"app/Controller/AppController.php"
+			],
+			[
+				"tag",
+				"app/Plugin/Portifolio/Model/Tag.php"
+			],
+			[
+				"default",
+				"app/View/Themed/Amoeba/Layouts/default.ctp"
+			],
+			[
+				"style.",
+				"app/View/Themed/Amoeba/webroot/css/style.css"
+			],
+			[
+				"view_blo",
+				"app/Plugin/Croogo/Test/test_app/View/Themed/Mytheme/Nodes/index_blog.ctp"
+			],
+			[
+				"contenttype",
+				"lib/Cake/Controller/Component/SecurityComponent.php"
+			],
+			[
+				"defau",
+				"app/Plugin/Croogo/View/Layouts/default.ctp"
+			],
+			[
+				"model.",
+				"lib/Cake/Model/Model.php"
+			],
+			[
+				"infle",
+				"lib/Cake/Utility/Inflector.php"
+			],
+			[
+				"croogocontroller",
+				"app/Plugin/Croogo/Controller/CroogoAppController.php"
+			],
+			[
+				"categori",
+				"app/controller/CategoriesController.js"
+			],
+			[
+				"catge",
+				"app/store/Categories.js"
+			],
+			[
+				"controller",
+				"app/controller/ItemsController.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 226.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

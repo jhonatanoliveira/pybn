@@ -1,7 +1,6 @@
 from ordered_set import OrderedSet
 from time import time
 from dseparation import dSeparation
-from threading import Thread
 
 class iSeparation(dSeparation):
 
@@ -26,43 +25,9 @@ class iSeparation(dSeparation):
 
 	def reachable(self):
 
-		# _timeAnY0 = time()
-		# _timeAnXYZ0 = time()
-
-		# AnX = []
-		# t1 = Thread(target = self.dag.ancestorsInParallel, args=(self.Y,AnX))
-		# t1.start()
-		# _timeAnY1 = time()
-		# _timeAnY = _timeAnY1 - _timeAnY0
-
-		# AnY = []
-		# t2 = Thread(target = self.dag.ancestorsInParallel, args=(self.Y,AnY))
-		# t2.start()
-
-		# AnZ = []
-		# t3 = Thread(target = self.dag.ancestorsInParallel, args=(self.Y,AnZ))
-		# t3.start()
-
-		# t1.join()
-		# t2.join()
-		# t3.join()
-
-		# _timeAnY1 = time()
-		# _timeAnY = _timeAnY1 - _timeAnY0
-		# _timeAnXYZ1 = time()
-		# _timeAnXYZ = _timeAnXYZ1 - _timeAnXYZ0
-
-		# AnX = AnX[0]
-		# AnY = AnY[0]
-		# AnZ = AnZ[0]
-		# anXYZ = AnX.union(AnY.union(AnZ))
-
 		# Phase I: ancestors of Y
-		# _timeAnY0 = time()
 		AnY = self.dag.ancestors(self.Y)
 		AnY = AnY.union(self.Y)
-		# _timeAnY1 = time()
-		# _timeAnY = _timeAnY1 - _timeAnY0
 
 		# Phase II: ancestors of XYZ
 		_timeAnXYZ0 = time()

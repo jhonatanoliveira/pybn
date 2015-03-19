@@ -5,7 +5,8 @@ class DAG:
 	def __init__(self):
 		self.variables = OrderedSet()
 		self.edges = OrderedSet()
-		self.transitiveClosureMap = {}
+		self.transitiveClosureDict = {}
+		self.topologicalSortList = []
 
 	def addVariable(self,variable):
 		self.variables.add(variable)
@@ -41,24 +42,32 @@ class DAG:
 		return children
 
 	def ancestors(self, variables):
-		if len(self.transitiveClosureMap) == 0:
-			self.transitiveClosureMap = self.transitiveClosure()
-		results = []
+		if type(variables) == str:
+			variables = OrderedSet([variables])
+		if len(self.allAncestors) == 0:
+			self.loadAllAncestors()
+		result = OrderedSet()
 		for variable in variables:
-			varInd = self.transitiveClosureMap["topologicalSort"].index(variable)
-			l = [key for key in self.transitiveClosureMap["maps"] if (key != variable and self.transitiveClosureMap["maps"][key][varInd] == True)]
-			results.extend(l)
-		return OrderedSet(results)
+			tmp = self.allAncestors[variable]
+			result = result.union( tmp )
+		return result
 
-	def ancestorsInParallel(self,variables,result):
-		result.append(self.ancestors(variables))
+	def loadTransitiveClosure(self):
+		self.transitiveClosureDict = self.transitiveClosure()
 
-	def preLoadTransitiveClosure(self):
-		self.transitiveClosureMap = self.transitiveClosure()
+	def loadAllAncestors(self):
+		if len(self.transitiveClosureDict) == 0:
+			self.transitiveClosureDict = self.transitiveClosure()
+		results = {}
+		for variable in self.variables:
+			varInd = self.topologicalSortList.index(variable)
+			l = [key for key in self.transitiveClosureDict if (key != variable and self.transitiveClosureDict[key][varInd] == True)]
+			results[variable] = OrderedSet(l)
+		self.allAncestors = results
 
 	def transitiveClosure(self):
-		topoSort = self.topologicalSort()
-		topoSort.reverse()
+		if len(self.topologicalSortList) == 0:
+			self.topologicalSortList = self.topologicalSort()
 		numVar = len(self.variables)
 		# initializing variables
 		result = {}
@@ -66,13 +75,13 @@ class DAG:
 			tmp = bitarray(numVar)
 			tmp.setall(False)
 			tmp[i] = True
-			result[topoSort[i]] = tmp
+			result[self.topologicalSortList[i]] = tmp
 		# for each variable in the DAG (inversed topological sort)
-		for variable in topoSort:
+		for variable in self.topologicalSortList:
 			for parent in self.parents(variable):
 				result[parent] = result[parent] | result[variable]
 
-		return {"maps": result, "topologicalSort": topoSort}
+		return result
 
 	def roots(self):
 		left = []
@@ -104,6 +113,7 @@ class DAG:
 					S.add(m)
 		if len(allEdges) > 0:
 			print "Error: graph has at least one cycle"
+		L.reverse()
 		return L
 
 	def descendants(self,variables):
