@@ -2,19 +2,43 @@ from ordered_set import OrderedSet
 from bitarray import bitarray
 
 class DAG:
+	"""
+	A Directed Acyclic Graph (DAG) is here represented by a (ordered) set of variables and a (ordered) set of edges (tuples). This implementation also does common operations on a DAG, like computing ancestors, topological sort, finding all v-structures, among other.
+	"""
 	def __init__(self):
+		"""
+		Input: (None)
+		Output: (None)
+		Description: The *variables* are a *OrderedSet* of *str*. The *edges* are a *OrderedSet* of *tuples* of size two. This tuple has two *str*, indicating a direct connection with the variables with respective name. The *transitiveClosureDict* is to save one possible Topological Sort (or Ordering). The *transitiveClosureDict* is to save the Transitive Closure of the DAG.
+		"""
 		self.variables = OrderedSet()
 		self.edges = OrderedSet()
-		self.transitiveClosureDict = {}
+		# Members to save recurrent properties of the DAG (that is, they're used to save something that is intrinsic of the DAG and can be reused later - a kind of precomputation).
 		self.topologicalSortList = []
+		self.transitiveClosureDict = {}
 
 	def addVariable(self,variable):
+		"""
+		Input: variable (Variable)
+		Output: (None)
+		Description: Add one variable to the set of variables.
+		"""
 		self.variables.add(variable)
 
 	def addEdge(self,edge):
+		"""
+		Input: edge (tuple(str,str))
+		Output: (None)
+		Description: Add one edge to the set of edges.
+		"""
 		self.edges.add(edge)
 
 	def add(self,variable1, variable2):
+		"""
+		Input: variable1 (str), variable2 (str)
+		Output: (None)
+		Description: A shortcut to add variables and edges simultaneously.
+		"""
 		if variable1 not in self.variables:
 			self.addVariable(variable1)
 		if variable2 not in self.variables:
@@ -22,6 +46,11 @@ class DAG:
 		self.addEdge((variable1,variable2))
 
 	def parents(self,variables):
+		"""
+		Input: variables (list[str])
+		Output: parents (OrderedSet(str))
+		Description: Return a set with all parents of all variables in *variables*.
+		"""
 		if type(variables) == str:
 			variables = OrderedSet([variables])
 		parents = OrderedSet()
