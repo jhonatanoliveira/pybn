@@ -3,8 +3,17 @@ from time import time
 from dseparation import dSeparation
 
 class iSeparation(dSeparation):
+	"""
+	This class inherits from dSeparation. Basically, it overrides the reachable alorithm.
+	Implements an alternative test of d-separation, called i-separation (Butz, Oliveira, dos Santos, 2015). The idea is to avoid paths doomed to be blocked by looking for inaugural variables.
+	"""
 
 	def inaugurals(self):
+		"""
+		Input: (None)
+		Output: (OrderedSet)
+		Description: Given the test of independence, return a set with all inaugural variables on the DAG.
+		"""
 		I = OrderedSet()
 		vstructures = self.dag.vstructures()
 		XYZ = self.X.union( self.Y.union(self.Z) )
@@ -17,6 +26,11 @@ class iSeparation(dSeparation):
 		return I.union(self.dag.descendants(I))
 
 	def isInaugural(self,variable,anXYZandXYZ):
+		"""
+		Input: variable (Variable), anXYZandXYZ (OrderedSet)
+		Output: result (Boolean)
+		Description: Test if a variable, given all ancestors of XYZ (including XYZ), is inaugural.
+		"""
 		result = False
 		if variable not in anXYZandXYZ:
 			if self.dag.isVstructure(variable):
@@ -24,7 +38,11 @@ class iSeparation(dSeparation):
 		return result
 
 	def reachable(self):
-
+		"""
+		Input: (None)
+		Output: (dict[str] = OrderedSet/int/float)
+		Description: This algorithm (Butz, Oliveira, dos Santos, 2015) tests the if Z is reachable from X, given some blocking rules (as described in Darwiche-2009, a sequential, divergent or convergent variables), including inaugural variables.
+		"""
 		# Phase I: ancestors of Y
 		AnY = self.dag.ancestors(self.Y)
 		AnY = AnY.union(self.Y)

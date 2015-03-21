@@ -1,6 +1,10 @@
 import collections
 
 class OrderedSet(collections.MutableSet):
+    """
+    This class was taken from http://code.activestate.com/recipes/576694
+    Few methods were added: copy, union and intersection
+    """
 
     def __init__(self, iterable=None):
         self.end = end = [] 
