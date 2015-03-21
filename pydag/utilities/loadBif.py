@@ -18,7 +18,7 @@ def loadBif(bifFilePath):
 	tempVar = Variable()
 	tempVars = {}
 	tempCpt = CPT()
-	tempCpts = OrderedSet()
+	tempCpts = {}
 
 	for line in bifFile:
 
@@ -92,7 +92,7 @@ def loadBif(bifFilePath):
 							tempCpt.add(tuple(tableKey), tableValue)
 							counter = counter + 1
 				else:
-					tempCpts.add(tempCpt)
+					tempCpts[tempCpt.getHeadAsVarsTuple()] = tempCpt
 					tempCpt = CPT()
 					getCptFlag = False
 

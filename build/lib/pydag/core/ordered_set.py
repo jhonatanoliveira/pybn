@@ -15,6 +15,13 @@ class OrderedSet(collections.MutableSet):
     def __contains__(self, key):
         return key in self.map
 
+    def __getitem__(self,key):
+        return self.map.keys()[key]
+
+    def get(self,key):
+        itemInd = self.map.keys().index(key)
+        return self.map.keys()[itemInd]
+
     def add(self, key):
         if key not in self.map:
             end = self.end
