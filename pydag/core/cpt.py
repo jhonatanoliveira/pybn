@@ -163,7 +163,7 @@ class CPT:
 		# find matching columns (common variables)
 		matchingVarIndexes = [(self.getVariables().index(v), other.getVariables().index(v)) for v in self.getVariables() if v in other.getVariables()]
 		matchingOtherHeadVarIndexes = [other.getHead().index(v) for v in other.getHead() if ((v in self.getHead()) or (v in self.getTail())) ] # helps to keep track of the index for a matching variable on the head in the *other* CPT.
-		matchingOtherTailVarIndexes = [len(other.getHead()) + other.getTail().index(v) for v in other.getTail() if ((v in self.getHead()) or (v in self.getTail())) # helps to keep track of the index for a matching variable on the tail in the *other* CPT.]
+		matchingOtherTailVarIndexes = [len(other.getHead()) + other.getTail().index(v) for v in other.getTail() if ((v in self.getHead()) or (v in self.getTail()))]# helps to keep track of the index for a matching variable on the tail in the *other* CPT.]
 		# construct the resultant cpt
 		cptResult = CPT()
 		# multiply each row that has matching domain values for all matching variable columns

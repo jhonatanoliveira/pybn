@@ -1,3 +1,4 @@
+from pydag.core.variable import Variable
 from ordered_set import OrderedSet
 from bitarray import bitarray
 
@@ -27,7 +28,7 @@ class DAG:
 
 	def addEdge(self,edge):
 		"""
-		Input: edge (tuple(str,str))
+		Input: edge (tuple(Variable,Variable))
 		Output: (None)
 		Description: Add one edge to the set of edges.
 		"""
@@ -35,7 +36,7 @@ class DAG:
 
 	def add(self,variable1, variable2):
 		"""
-		Input: variable1 (str), variable2 (str)
+		Input: variable1 (Variable), variable2 (Variable)
 		Output: (None)
 		Description: A shortcut to add variables and edges simultaneously.
 		"""
@@ -47,11 +48,11 @@ class DAG:
 
 	def parents(self,variables):
 		"""
-		Input: variables (list[str])
-		Output: parents (OrderedSet(str))
+		Input: variables (list[Variable])
+		Output: parents (OrderedSet(Variable))
 		Description: Return a set with all parents of all variables in *variables*.
 		"""
-		if type(variables) == str:
+		if isinstance(variables,Variable):
 			variables = OrderedSet([variables])
 		parents = OrderedSet()
 		for variable in variables:
@@ -61,7 +62,12 @@ class DAG:
 		return parents
 
 	def children(self,variables):
-		if type(variables) == str:
+		"""
+		Input: variables (list[Variable])
+		Output: children (OrderedSet(Variable))
+		Description: Return a set with all children of all variables in *variables*.
+		"""
+		if isinstance(variables,Variable):
 			variables = OrderedSet([variables])
 		children = OrderedSet()
 		for variable in variables:
@@ -71,6 +77,11 @@ class DAG:
 		return children
 
 	def ancestors(self, variables):
+		"""
+		Input: variables (list[Variable])
+		Output: result (OrderedSet(Variable))
+		Description: Return a set with all ancestors for each given variable.
+		"""
 		if type(variables) == str:
 			variables = OrderedSet([variables])
 		if len(self.allAncestors) == 0:
@@ -81,10 +92,35 @@ class DAG:
 			result = result.union( tmp )
 		return result
 
+	def descendants(self,variables):
+		"""
+		Input: variables (list[Variable])
+		Output: descendants (OrderedSet(Variable))
+		Description: Return a set with all descendants for each given variable.
+		"""
+		if type(variables) == str:
+			variables = OrderedSet([variables])
+		descendants = OrderedSet()
+		for v in self.variables:
+			Anv = self.ancestors(v)
+			if len(Anv.intersection(variables)) > 0:
+				descendants.add(v)
+		return descendants
+
 	def loadTransitiveClosure(self):
+		"""
+		Input: (None)
+		Output: (None)
+		Description: A function to do pre-computation, that is, load in advance the transitive closure of the DAG.
+		"""
 		self.transitiveClosureDict = self.transitiveClosure()
 
 	def loadAllAncestors(self):
+		"""
+		Input: (None)
+		Output: (None)
+		Description: A function to do pre-computation, that is, load in advance all ancestors for each variable of the DAG.
+		"""
 		if len(self.transitiveClosureDict) == 0:
 			self.transitiveClosureDict = self.transitiveClosure()
 		results = {}
@@ -95,6 +131,11 @@ class DAG:
 		self.allAncestors = results
 
 	def transitiveClosure(self):
+		"""
+		Input: (None)
+		Output: result (dict[Variable] = bitarray)
+		Description: Compute the inversed transitive closure of a DAG. In simple words, the transitive closure for each variable in the DAG tells to which ancestors variables it has a connection (via directed edge). This is done by transitivity. For example, if a -> b -> c, then a -> c. This transitive closure is inversed because it start from the bottom (leafes) up (roots). This implementation uses arrays of bits for optimizing the computation.
+		"""
 		if len(self.topologicalSortList) == 0:
 			self.topologicalSortList = self.topologicalSort()
 		numVar = len(self.variables)
@@ -109,10 +150,14 @@ class DAG:
 		for variable in self.topologicalSortList:
 			for parent in self.parents(variable):
 				result[parent] = result[parent] | result[variable]
-
 		return result
 
 	def roots(self):
+		"""
+		Input: (None)
+		Output: roots (OrderedSet(Variable))
+		Description: Return a set with all root variables in a DAG. Root variables are those without directed edge to them.
+		"""
 		left = []
 		right = []
 		for edge in self.edges:
@@ -126,7 +171,9 @@ class DAG:
 
 	def topologicalSort(self):
 		"""
-		First described by Kahn (1962), Wikipedia
+		Input: (None)
+		Output: L (OrderedSet(Variable))
+		Description: Compute one possible topological sort (or ordering) for the DAG. Algorithm took from Wikipedia. A topological sort of a DAG G is an ordering of the vertices of G such that for every edge (vi, vj) of G we have i < j. This implementation was first described by Kahn (1962).
 		"""
 		L = []
 		S = self.roots()
@@ -145,25 +192,25 @@ class DAG:
 		L.reverse()
 		return L
 
-	def descendants(self,variables):
-		if type(variables) == str:
-			variables = OrderedSet([variables])
-		descendants = OrderedSet()
-		for v in self.variables:
-			Anv = self.ancestors(v)
-			if Anv.intersection(variables).__len__() > 0:
-				descendants.add(v)
-		return descendants
-
 	def vstructures(self):
+		"""
+		Input: (None)
+		Output: vstructures (OrderedSet(Variable))
+		Description: Return all v-structures of a DAG. A variable is a v-structure if it has more than one parent.
+		"""
 		vstructures = OrderedSet()
 		for v in self.variables:
-			if self.parents(v).__len__() > 1:
+			if len(self.parents(v)) > 1:
 				vstructures.add(v)
 		return vstructures
 
 	def isVstructure(self,variable):
+		"""
+		Input: variable (Variable)
+		Output: result (Boolean)
+		Description: Verify if a given variable is a v-structure. A variable is a v-structure if it has more than one parent.
+		"""
 		result = False
-		if self.parents(variable).__len__() > 1:
+		if len(self.parents(variable)) > 1:
 			result = True
 		return result

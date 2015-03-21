@@ -54,7 +54,7 @@ def loadBif(bifFilePath):
 				if len(tail) != 0:
 					for parent in tail:
 						for child in head:
-							dag.add(parent,child)
+							dag.add(Variable(parent),Variable(child))
 
 				# Save head and tail to temporary CPT
 				headVars = []
