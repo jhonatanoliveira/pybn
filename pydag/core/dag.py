@@ -18,6 +18,72 @@ class DAG:
 		self.topologicalSortList = []
 		self.transitiveClosureDict = {}
 
+	def __str__(self):
+		"""
+		Input: (None)
+		Output: (None)
+		Description: How to print a DAG.
+		"""
+		toPrint = ""
+		toPrint = toPrint + "Variables: \n"
+		for v in self.getVariables():
+			toPrint = toPrint + v.__str__() + ","
+		toPrint = toPrint[0:-1]
+		toPrint = toPrint + "\n"
+		toPrint = toPrint + "Edges: \n"
+		for e in self.getEdges():
+			toPrint = toPrint + "("
+			for v in e:
+				toPrint = toPrint + v.__str__() + ","
+			toPrint = toPrint[0:-1]
+			toPrint = toPrint + ")"
+			toPrint = toPrint + " "
+		toPrint = toPrint + "\n"
+		return toPrint
+
+	def copy(self):
+		"""
+		Input: (None)
+		Output: copiedDag (DAG)
+		Description: Make a copy of this DAG by copying the variables and edges.
+		"""
+		copiedDag = DAG()
+		copiedDag.setVariables(self.getVariables().copy())
+		copiedDag.setEdges(self.getEdges().copy())
+		return copiedDag
+
+	def setVariables(self,variables):
+		"""
+		Input: variables (OrderedSet(Variable))
+		Output: (None)
+		Description: set all variables in this DAG.
+		"""
+		self.variables = variables
+
+	def getVariables(self):
+		"""
+		Input: (None)
+		Output: (None)
+		Description: Return all variables.
+		"""
+		return self.variables
+
+	def setEdges(self,edges):
+		"""
+		Input: edges (OrderedSet(tuple(Variable,Variable)))
+		Output: (None)
+		Description: set all edges in this DAG.
+		"""
+		self.edges = edges
+
+	def getEdges(self):
+		"""
+		Input: (None)
+		Output: (None)
+		Description: Return all edges.
+		"""
+		return self.edges
+
 	def addVariable(self,variable):
 		"""
 		Input: variable (Variable)
@@ -214,3 +280,16 @@ class DAG:
 		if len(self.parents(variable)) > 1:
 			result = True
 		return result
+
+	def moralize(self):
+		"""
+		Input: (None)
+		Output: moralizedDag (DAG)
+		Description: Returns the moralized DAG, created by adding edges between parents of v-structures (variables with more than one parents). The moralized DAG is a exactly copy of this DAG, but with (possibly) more edges.
+		"""
+		moralizedDag = self.copy()
+		allVstructures = moralizedDag.vstructures()
+		for v in allVstructures:
+			parentsOfVstructure = moralizedDag.parents(v)
+			moralizedDag.addEdge((parentsOfVstructure[0],parentsOfVstructure[1]))
+		return moralizedDag

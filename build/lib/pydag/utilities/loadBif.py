@@ -4,6 +4,11 @@ from pydag.core.variable import Variable
 from pydag.core.cpt import CPT
 
 def loadBif(bifFilePath):
+	"""
+	Input: bifFilePath (str)
+	Output: (dict[str] = DAG/OrderedSet(CPT))
+	Description: Given the a string with the path for a bif file, return the DAG and CPTs within a set.
+	"""
 	
 	dag = DAG()
 	cpts = OrderedSet()

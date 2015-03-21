@@ -1,6 +1,10 @@
 import collections
 
 class OrderedSet(collections.MutableSet):
+    """
+    This class was taken from http://code.activestate.com/recipes/576694
+    Few methods were added: copy, union, intersection, and __getitem__
+    """
 
     def __init__(self, iterable=None):
         self.end = end = [] 
@@ -14,9 +18,6 @@ class OrderedSet(collections.MutableSet):
 
     def __contains__(self, key):
         return key in self.map
-
-    def __getitem__(self,key):
-        return self.map.keys()[key]
 
     def get(self,key):
         itemInd = self.map.keys().index(key)
@@ -75,3 +76,6 @@ class OrderedSet(collections.MutableSet):
     def intersection(self,other):
         newMap = [v for v in self.map.keys() if v in other.map.keys()]
         return OrderedSet( newMap )
+
+    def __getitem__(self,key):
+        return self.map.keys()[key]
