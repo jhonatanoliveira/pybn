@@ -1,4 +1,4 @@
-from ordered_set import OrderedSet
+from pydag.core.orderedSet import OrderedSet
 from time import time
 
 class dSeparation:

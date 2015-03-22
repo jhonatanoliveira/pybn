@@ -1,6 +1,6 @@
 from pydag.core.graph import Graph
 from pydag.core.variable import Variable
-from ordered_set import OrderedSet
+from pydag.core.orderedSet import OrderedSet
 from bitarray import bitarray
 
 class DAG(Graph):
@@ -11,7 +11,7 @@ class DAG(Graph):
 		"""
 		Input: (None)
 		Output: (None)
-		Description: The *variables* are a *OrderedSet* of *Variable*. The *edges* are a *OrderedSet* of *tuples* of size two. This tuple has two *Variable*, indicating a direct connection with the variables with respective name. The *transitiveClosureDict* is to save one possible Topological Sort (or Ordering). The *transitiveClosureDict* is to save the Transitive Closure of the DAG.
+		Description: The *transitiveClosureDict* is to save one possible Topological Sort (or Ordering). The *transitiveClosureDict* is to save the Transitive Closure of the DAG.
 		"""
 		Graph.__init__(self)
 		# Members to save recurrent properties of the DAG (that is, they're used to save something that is intrinsic of the DAG and can be reused later - a kind of precomputation).

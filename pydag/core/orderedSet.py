@@ -91,6 +91,6 @@ class OrderedSet(collections.MutableSet):
                 toPrint = toPrint[0:-1]
                 toPrint = toPrint + ")"
             else:
-                toPrint = toPrint + elem.__str__()
-        toPrint = toPrint + " }"
+                toPrint = toPrint + elem.__str__() + " "
+        toPrint = toPrint + "}"
         return toPrint

@@ -1,8 +1,16 @@
-from ordered_set import OrderedSet
+from pydag.core.orderedSet import OrderedSet
 
 class Graph:
+	"""
+	A general graph implementation, with set of variables an edges. It is used to define specific graphs like Directed Acyclic Graphs (DAGs) or Undirected Graphs.
+	"""
 
 	def __init__(self):
+		"""
+		Input: (None)
+		Output: (None)
+		Description: The *variables* are a *OrderedSet* of *Variable*. The *edges* are a *OrderedSet* of *tuples* of size two. This tuple has two *Variable*, indicating a direct connection with the variables with respective name.
+		"""
 		self.variables = OrderedSet()
 		self.edges = OrderedSet()
 
@@ -88,3 +96,25 @@ class Graph:
 		if variable2 not in self.variables:
 			self.addVariable(variable2)
 		self.addEdge((variable1,variable2))
+
+	def neighbors(self,variable):
+		"""
+		Input: variable (Variable)
+		Output: variableNeighbors (OrderedSet)
+		Description: Return variables being neighbors (has an edge to) variable.
+		"""
+		variableNeighbors = OrderedSet()
+		for e in self.edges:
+			if e[0] == variable:
+				variableNeighbors.add(e[1])
+			elif e[1] == variable:
+				variableNeighbors.add(e[0])
+		return variableNeighbors
+
+	def hasEdge(self,edge):
+		"""
+		Input: edge (tuple(Variable,Variable))
+		Output: variableNeighbors (Boolean)
+		Description: Check if given edge is in Graph.
+		"""
+		return edge in self.getEdges()
