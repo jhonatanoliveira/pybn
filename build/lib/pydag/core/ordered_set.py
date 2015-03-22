@@ -3,7 +3,7 @@ import collections
 class OrderedSet(collections.MutableSet):
     """
     This class was taken from http://code.activestate.com/recipes/576694
-    Few methods were added: copy, union, intersection, and __getitem__
+    Few methods were added: copy, union, intersection, __getitem__, and __str__
     """
 
     def __init__(self, iterable=None):
@@ -79,3 +79,18 @@ class OrderedSet(collections.MutableSet):
 
     def __getitem__(self,key):
         return self.map.keys()[key]
+
+    def __str__(self):
+        toPrint = ""
+        toPrint = toPrint + "{ "
+        for elem in self.map.keys():
+            if type(elem) == tuple:
+                toPrint = toPrint + "("
+                for i in elem:
+                    toPrint = toPrint + i.__str__() + ","
+                toPrint = toPrint[0:-1]
+                toPrint = toPrint + ")"
+            else:
+                toPrint = toPrint + elem.__str__()
+        toPrint = toPrint + " }"
+        return toPrint

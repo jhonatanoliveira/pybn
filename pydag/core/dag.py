@@ -1,8 +1,9 @@
+from pydag.core.graph import Graph
 from pydag.core.variable import Variable
 from ordered_set import OrderedSet
 from bitarray import bitarray
 
-class DAG:
+class DAG(Graph):
 	"""
 	A Directed Acyclic Graph (DAG) is here represented by a (ordered) set of variables and a (ordered) set of edges (tuples). This implementation also does common operations on a DAG, like computing ancestors, topological sort, finding all v-structures, among other.
 	"""
@@ -10,36 +11,12 @@ class DAG:
 		"""
 		Input: (None)
 		Output: (None)
-		Description: The *variables* are a *OrderedSet* of *str*. The *edges* are a *OrderedSet* of *tuples* of size two. This tuple has two *str*, indicating a direct connection with the variables with respective name. The *transitiveClosureDict* is to save one possible Topological Sort (or Ordering). The *transitiveClosureDict* is to save the Transitive Closure of the DAG.
+		Description: The *variables* are a *OrderedSet* of *Variable*. The *edges* are a *OrderedSet* of *tuples* of size two. This tuple has two *Variable*, indicating a direct connection with the variables with respective name. The *transitiveClosureDict* is to save one possible Topological Sort (or Ordering). The *transitiveClosureDict* is to save the Transitive Closure of the DAG.
 		"""
-		self.variables = OrderedSet()
-		self.edges = OrderedSet()
+		Graph.__init__(self)
 		# Members to save recurrent properties of the DAG (that is, they're used to save something that is intrinsic of the DAG and can be reused later - a kind of precomputation).
 		self.topologicalSortList = []
 		self.transitiveClosureDict = {}
-
-	def __str__(self):
-		"""
-		Input: (None)
-		Output: (None)
-		Description: How to print a DAG.
-		"""
-		toPrint = ""
-		toPrint = toPrint + "Variables: \n"
-		for v in self.getVariables():
-			toPrint = toPrint + v.__str__() + ","
-		toPrint = toPrint[0:-1]
-		toPrint = toPrint + "\n"
-		toPrint = toPrint + "Edges: \n"
-		for e in self.getEdges():
-			toPrint = toPrint + "("
-			for v in e:
-				toPrint = toPrint + v.__str__() + ","
-			toPrint = toPrint[0:-1]
-			toPrint = toPrint + ")"
-			toPrint = toPrint + " "
-		toPrint = toPrint + "\n"
-		return toPrint
 
 	def copy(self):
 		"""
@@ -51,66 +28,6 @@ class DAG:
 		copiedDag.setVariables(self.getVariables().copy())
 		copiedDag.setEdges(self.getEdges().copy())
 		return copiedDag
-
-	def setVariables(self,variables):
-		"""
-		Input: variables (OrderedSet(Variable))
-		Output: (None)
-		Description: set all variables in this DAG.
-		"""
-		self.variables = variables
-
-	def getVariables(self):
-		"""
-		Input: (None)
-		Output: (None)
-		Description: Return all variables.
-		"""
-		return self.variables
-
-	def setEdges(self,edges):
-		"""
-		Input: edges (OrderedSet(tuple(Variable,Variable)))
-		Output: (None)
-		Description: set all edges in this DAG.
-		"""
-		self.edges = edges
-
-	def getEdges(self):
-		"""
-		Input: (None)
-		Output: (None)
-		Description: Return all edges.
-		"""
-		return self.edges
-
-	def addVariable(self,variable):
-		"""
-		Input: variable (Variable)
-		Output: (None)
-		Description: Add one variable to the set of variables.
-		"""
-		self.variables.add(variable)
-
-	def addEdge(self,edge):
-		"""
-		Input: edge (tuple(Variable,Variable))
-		Output: (None)
-		Description: Add one edge to the set of edges.
-		"""
-		self.edges.add(edge)
-
-	def add(self,variable1, variable2):
-		"""
-		Input: variable1 (Variable), variable2 (Variable)
-		Output: (None)
-		Description: A shortcut to add variables and edges simultaneously.
-		"""
-		if variable1 not in self.variables:
-			self.addVariable(variable1)
-		if variable2 not in self.variables:
-			self.addVariable(variable2)
-		self.addEdge((variable1,variable2))
 
 	def parents(self,variables):
 		"""

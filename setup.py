@@ -6,5 +6,5 @@ setup(name = "pydag",
       author = "Jhonatan Oliveira",
       author_email = "jhonatanoliveira@gmail.com",
       url = "www2.cs.uregina.ca/~desouzjh/",
-      packages=["pydag","pydag.core","pydag.utilities"]
+      packages=["pydag","pydag.core","pydag.utilities","pydag.inference"]
       )
