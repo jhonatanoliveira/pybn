@@ -118,3 +118,14 @@ class Graph:
 		Description: Check if given edge is in Graph.
 		"""
 		return edge in self.getEdges()
+
+	def removeVariable(self,variable):
+		"""
+		Input: variable (Variable)
+		Output: (None)
+		Description: Remove a variable from a graph, including all edges involving this variable.
+		"""
+		self.variables.remove(variable)
+		for e in self.getEdges():
+			if (e[0] == variable or e[1] == variable):
+				self.edges.remove(e)

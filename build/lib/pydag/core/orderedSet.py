@@ -94,3 +94,5 @@ class OrderedSet(collections.MutableSet):
                 toPrint = toPrint + elem.__str__() + " "
         toPrint = toPrint + "}"
         return toPrint
+    def remove(self,key):
+        self.discard(key)
