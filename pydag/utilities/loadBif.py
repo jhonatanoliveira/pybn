@@ -1,7 +1,9 @@
 from pydag.core.dag import DAG
-from pydag.core.ordered_set import OrderedSet
+from pydag.core.orderedSet import OrderedSet
 from pydag.core.variable import Variable
 from pydag.core.cpt import CPT
+from pydag.core.cpts import CPTs
+from pydag.core.bayesianNetwork import BayesianNetwork
 
 def loadBif(bifFilePath):
 	"""
@@ -9,9 +11,9 @@ def loadBif(bifFilePath):
 	Output: (dict[str] = DAG/OrderedSet(CPT))
 	Description: Given the a string with the path for a bif file, return the DAG and CPTs within a set.
 	"""
-	
+	bn = BayesianNetwork()
 	dag = DAG()
-	cpts = OrderedSet()
+	cpts = CPTs()
 
 	bifFile = open(bifFilePath)
 
@@ -23,7 +25,6 @@ def loadBif(bifFilePath):
 	tempVar = Variable()
 	tempVars = {}
 	tempCpt = CPT()
-	tempCpts = {}
 
 	for line in bifFile:
 
@@ -97,7 +98,7 @@ def loadBif(bifFilePath):
 							tempCpt.add(tuple(tableKey), tableValue)
 							counter = counter + 1
 				else:
-					tempCpts[tempCpt.getHeadAsVarsTuple()] = tempCpt
+					cpts.add(tempCpt)
 					tempCpt = CPT()
 					getCptFlag = False
 
@@ -135,6 +136,6 @@ def loadBif(bifFilePath):
 					getVarFlag = False
 				else:
 					print "ERROR! Not discrete variable!"
-
-
-	return {"DAG": dag, "CPTs": tempCpts}
+	bn.setCPTs(cpts)
+	bn.setDAG(dag)
+	return bn

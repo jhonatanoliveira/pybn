@@ -48,6 +48,20 @@ class CPT:
 		"""
 		return len(self.getTable())
 
+	def __eq__(self,other):
+		trueFlag = True
+		trueFlag = trueFlag and ( len(self.getHead()) == len(other.getHead()) )
+		trueFlag = trueFlag and ( len(self.getTail()) == len(other.getTail()) )
+		trueFlag = trueFlag and ( len([v for v in self.getHead() if v in other.getHead()]) == self.getHead() )
+		trueFlag = trueFlag and ( len([v for v in self.getTail() if v in other.getTail()]) == self.getTail() )
+		trueFlag = trueFlag and ( self.getTable() == other.getTable() )
+		return trueFlag
+
+	def __hash__(self):
+		head = tuple(v for v in self.getHead())
+		tail = tuple(v for v in self.getTail())
+		return hash(head + tail)
+
 	def copy(self):
 		"""
 		Input: (None)
@@ -90,7 +104,7 @@ class CPT:
 		Output: (list[Variable])
 		Description: Returns the current *head*.
 		"""
-		return self.head
+		return self.head[:]
 
 	def getHeadAsVarsTuple(self):
 		"""
@@ -114,7 +128,7 @@ class CPT:
 		Output: (list[Variable])
 		Description: Returns the current *tail*.
 		"""
-		return self.tail
+		return self.tail[:]
 
 	def getVariables(self):
 		"""
@@ -122,7 +136,15 @@ class CPT:
 		Output: (list[Variable])
 		Description: Returns all variables in the CPT by concatening the *head* and the *tail*. This is useful when trying to use a global reference indice for the variable. For example, if head = [Variable("a")] and tail = [Variable("b"),Variable("c")] in a global reference for Variable("b") would be 1, since *variables* = (Variable("a"),Variable("b"),Variable("c")).
 		"""
-		return self.getHead() + self.getTail()
+		return self.getHead()[:] + self.getTail()[:]
+
+	def hasVariable(self,variable):
+		"""
+		Input: variable (Variable)
+		Output: (None)
+		Description: Check if given variable is within the CPT.
+		"""
+		return (variable in self.getHead()) or (variable in self.getTail())
 
 	def getTable(self):
 		"""
@@ -130,7 +152,7 @@ class CPT:
 		Output: table (dict[tuple] = float)
 		Description: Returns the current *table*.
 		"""
-		return self.table
+		return self.table.copy()
 
 	def setTable(self,table):
 		"""
@@ -281,3 +303,10 @@ class CPT:
 			newHead.remove( v )
 			cptResult.setHead( newHead )
 		return cptResult
+
+	def removeRows(self,evidence):
+		for evidenceVar in evidence:
+			varInd = self.getGlobalReferenceVarInd(evidenceVar)
+			for row in self.getTable():
+				if row[varInd] == evidence[evidenceVar]:
+					del self.table[row]

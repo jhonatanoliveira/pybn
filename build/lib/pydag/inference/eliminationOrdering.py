@@ -38,11 +38,11 @@ class EliminationOrdering:
 	def minFill(self,variable):
 		return len(self.undirectedGraph.neighbors(variable))
 
-	def orderings(self,costFunc,variables):
+	def findEliminationOrdering(self,costFunc,variables):
 		ordering = []
 		while variables:
 			scorings = [{"variable": v, "score": costFunc(v)} for v in variables]
 			sortedScorings = sorted(scorings, key=lambda k: k['score'])
-			ordering.append(sortedScorings[0]["variable"].name)
+			ordering.append(sortedScorings[0]["variable"])
 			variables.remove(sortedScorings[0]["variable"])
 		return ordering

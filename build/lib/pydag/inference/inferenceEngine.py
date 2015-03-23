@@ -1,10 +1,9 @@
 class InferenceEngine:
 
-	def __init__(self,cpts):
-		self.cpts = cpts.copy()
-		self.originalCpts = cpts.copy()
+	def __init__(self,bn):
+		self.BN = bn
 		self.queryVariables = []
-		self.evidencesVariables = []
+		self.evidenceVariables = []
 
 	def run(self):
 		pass
@@ -12,5 +11,14 @@ class InferenceEngine:
 	def setQueryVariables(self,queryVariables):
 		self.queryVariables = queryVariables
 
-	def setEvidencesVariables(self,evidencesVariables):
+	def getQueryVariables(self):
+		return self.queryVariables
+
+	def setEvidenceVariables(self,evidencesVariables):
 		self.evidencesVariables = evidencesVariables
+
+	def getEvidenceVariables(self):
+		return self.evidencesVariables
+
+	def beliefUpdate(self,evidences):
+		pass
