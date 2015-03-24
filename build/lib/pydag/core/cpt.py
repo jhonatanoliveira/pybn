@@ -1,3 +1,6 @@
+from pydag.core.orderedSet import OrderedSet
+
+
 class CPT:
 
     """
@@ -314,8 +317,8 @@ class CPT:
         Output: cptResult (CPT)
         Description: Marginalize a CPT on the given variables. Given the variables to be summed out (given by taking all variables and removing the ones to be marginalized), the idea is to remove every column (a position in a tuple) of each configuration (row) from the table. Next, we sum the rows that are equal.
         """
-        if type(variables) != list:
-            variables = [variables]
+        if type(variables) != OrderedSet:
+            variables = OrderedSet(variables)
         # a copy of the current CPT that can be modified.
         cptResult = self.copy()
         # find out variables to be summed out, in order to construct the new

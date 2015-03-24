@@ -42,9 +42,9 @@ class VariableElimination(InferenceEngine):
         return (finalProduct / divCPT)
 
     def beliefUpdate(self, evidences):
-        evidenceVars = []
+        evidenceVars = OrderedSet()
         for var in evidences:
-            evidenceVars.append(var)
+            evidenceVars.add(var)
             relevantCPTs = self.BN.getCPTs().getCPTsByVariable(var)
             for cpt in relevantCPTs:
                 cpt.keepRows({var: evidences[var]})
@@ -54,8 +54,7 @@ class VariableElimination(InferenceEngine):
         moralizedDAG = self.BN.getDAG().moralize()
         ud = UndirectedGraph(moralizedDAG)
         e = EliminationOrdering(ud)
-        elimVars = self.BN.getDAG().getVariables() - \
-            OrderedSet(self.getQueryVariables() + self.getEvidenceVariables())
+        elimVars = self.BN.getDAG().getVariables() - (self.getQueryVariables() + self.getEvidenceVariables())
         elimOrd = e.findEliminationOrdering(e.weightedMinFill, elimVars)
         self.setEliminationOrdering(elimOrd)
 

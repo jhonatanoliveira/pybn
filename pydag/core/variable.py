@@ -1,3 +1,6 @@
+from pydag.core.orderedSet import OrderedSet
+
+
 class Variable:
 
     """
@@ -8,10 +11,10 @@ class Variable:
         """
         Input: name (str)
         Output: (None)
-        Description: A variable can be created with a given name or no name.
+        Description: A variable can be created with a given name or no name. Its domain can be a set of strings or integer, for instance.
         """
         self.name = name
-        self.domain = []  # Can be a list with strings, for instance
+        self.domain = OrderedSet()
 
     def __str__(self):
         """
@@ -43,7 +46,7 @@ class Variable:
         Output: (None)
         Description: Add a domain (integer or string) to the variable.
         """
-        self.domain.append(domain)
+        self.domain.add(domain)
 
     def removeDomain(self, domain):
         """

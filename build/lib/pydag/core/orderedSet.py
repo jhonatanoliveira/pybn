@@ -99,3 +99,6 @@ class OrderedSet(collections.MutableSet):
 
     def remove(self, key):
         self.discard(key)
+
+    def __add__(self, other):
+        return self.union(other)
