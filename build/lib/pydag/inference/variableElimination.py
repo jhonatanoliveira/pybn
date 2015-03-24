@@ -8,7 +8,7 @@ class VariableElimination(InferenceEngine):
 
     def __init__(self, bn):
         InferenceEngine.__init__(self, bn)
-        self.eliminationOrdering = []
+        self.eliminationOrdering = OrderedSet()
 
     def setEliminationOrdering(self, elimnOrd):
         self.eliminationOrdering = elimnOrd

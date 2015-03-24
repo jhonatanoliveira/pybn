@@ -16,8 +16,8 @@ class CPT:
         Output: (None)
         Description: The constructor only creates the members of the class. The *head* is a list with *Variable*, representing the left hand side (LHS) of a CPT. The *tail* is also a list with *Variable*, representing the right hand side (RHS) of a CPT. A *table* is a *dictionary* where the keys are *tuples* representing rows (configurations or combinations) of domain values. For example, P(a|b) with head Variable("a") and tail Variable("b"), both binary, could have a table {(0,0): 0.7, (0,1): 0.3, (1,0):0.2, (1,1):0.8}.
         """
-        self.head = []
-        self.tail = []
+        self.head = OrderedSet()
+        self.tail = OrderedSet()
         self.table = {}
 
     def __str__(self):
