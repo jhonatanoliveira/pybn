@@ -1,6 +1,7 @@
 # pydag
 ## A simple python library for Bayesian Network modelling and inference
-Features:
+
+**Features**:
    * A Directed Acyclic Graph (DAG) class with following functions: parents, children, ancestors, descendants, all v-structures, moralize.
    * An Undirected Graph implementation.
    * A a-Separation class for testing independencies.
@@ -8,5 +9,6 @@ Features:
    * Conditional Probability Table (CPT) implementation with multiplication, division, marginalization, among other operations.
    * Elimination Ordering (Min-Neighbor, Min-Weight, Min-Filll, Weithed-Min-Fill)
    * Variable Eimination (removing barren variables, independent by evidence variables, creating one tables of new root variables, and so on).
-Utilities:
+
+**Utilities**:
    * Load network from BIF files.
