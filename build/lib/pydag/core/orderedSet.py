@@ -1,13 +1,15 @@
 import collections
 
+
 class OrderedSet(collections.MutableSet):
+
     """
     This class was taken from http://code.activestate.com/recipes/576694
     Few methods were added: copy, union, intersection, __getitem__, and __str__
     """
 
     def __init__(self, iterable=None):
-        self.end = end = [] 
+        self.end = end = []
         end += [None, end, end]         # sentinel node for doubly linked list
         self.map = {}                   # key --> [key, prev, next]
         if iterable is not None:
@@ -19,7 +21,7 @@ class OrderedSet(collections.MutableSet):
     def __contains__(self, key):
         return key in self.map
 
-    def get(self,key):
+    def get(self, key):
         itemInd = self.map.keys().index(key)
         return self.map.keys()[itemInd]
 
@@ -30,7 +32,7 @@ class OrderedSet(collections.MutableSet):
             curr[2] = end[1] = self.map[key] = [key, curr, end]
 
     def discard(self, key):
-        if key in self.map:        
+        if key in self.map:
             key, prev, next = self.map.pop(key)
             prev[2] = next
             next[1] = prev
@@ -69,15 +71,15 @@ class OrderedSet(collections.MutableSet):
     def copy(self):
         return OrderedSet(self)
 
-    def union(self,other):
+    def union(self, other):
         newMap = self.map.keys() + other.map.keys()
-        return OrderedSet( newMap )
+        return OrderedSet(newMap)
 
-    def intersection(self,other):
+    def intersection(self, other):
         newMap = [v for v in self.map.keys() if v in other.map.keys()]
-        return OrderedSet( newMap )
+        return OrderedSet(newMap)
 
-    def __getitem__(self,key):
+    def __getitem__(self, key):
         return self.map.keys()[key]
 
     def __str__(self):
@@ -95,5 +97,5 @@ class OrderedSet(collections.MutableSet):
         toPrint = toPrint + "}"
         return toPrint
 
-    def remove(self,key):
+    def remove(self, key):
         self.discard(key)
