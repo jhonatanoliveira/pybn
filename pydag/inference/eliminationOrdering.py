@@ -41,11 +41,11 @@ class EliminationOrdering:
         return len(self.undirectedGraph.neighbors(variable))
 
     def findEliminationOrdering(self, costFunc, variables):
-        ordering = []
+        ordering = OrderedSet()
         while variables:
             scorings = [
                 {"variable": v, "score": costFunc(v)} for v in variables]
             sortedScorings = sorted(scorings, key=lambda k: k['score'])
-            ordering.append(sortedScorings[0]["variable"])
+            ordering.add(sortedScorings[0]["variable"])
             variables.remove(sortedScorings[0]["variable"])
         return ordering

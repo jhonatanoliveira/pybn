@@ -45,7 +45,7 @@ class InferenceEngine:
         independentVariables = OrderedSet()
         for variable in self.getBN().getDAG().getVariables():
             if (variable not in self.getQueryVariables()) and (variable not in self.getEvidenceVariables()):
-                dSep = dSeparation(variable, self.getEvidenceVariables(), self.getQueryVariables())
+                dSep = dSeparation(variable, self.getEvidenceVariables(), self.getQueryVariables(), self.BN.getDAG())
                 if dSep.test():
                     independentVariables.add(variable)
         return independentVariables

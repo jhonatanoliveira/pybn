@@ -2,6 +2,8 @@ from pydag.core.undirectedGraph import UndirectedGraph
 from pydag.core.orderedSet import OrderedSet
 from pydag.inference.inferenceEngine import InferenceEngine
 from pydag.inference.eliminationOrdering import EliminationOrdering
+from pydag.core.cpt import CPT
+from pydag.core.cpts import CPTs
 
 
 class VariableElimination(InferenceEngine):
@@ -14,8 +16,16 @@ class VariableElimination(InferenceEngine):
         self.eliminationOrdering = elimnOrd
 
     def run(self):
+        originalRoots = self.getBN().getDAG().roots()  # save roots for later
         # Remove barren variables
         self.removeBarrenVariables()
+        # Remove independen by evidence variables
+        self.removeIndependenceByEvidenceVariables()
+        # Build 1(v) for all current roots which were not root in the original
+        # BN
+        currentRoots = self.getBN().getDAG().roots()
+        newRoots = currentRoots - originalRoots
+        self.constructOneVariable(newRoots)
         # Find one elimination ordering
         if len(self.eliminationOrdering) == 0:
             self.setOneEliminationOrdering()
@@ -38,7 +48,9 @@ class VariableElimination(InferenceEngine):
                 finalProduct *= self.BN.getCPTs()[i]
         else:
             finalProduct = self.BN.getCPTs()[0]
+        print finalProduct
         divCPT = finalProduct.marginalize(self.getEvidenceVariables())
+        print divCPT
         return (finalProduct / divCPT)
 
     def beliefUpdate(self, evidences):
@@ -58,6 +70,11 @@ class VariableElimination(InferenceEngine):
         elimOrd = e.findEliminationOrdering(e.weightedMinFill, elimVars)
         self.setEliminationOrdering(elimOrd)
 
+    def removeIndependenceByEvidenceVariables(self):
+        indepVars = self.getIndependentByEvidenceVariables()
+        self.BN.getCPTs().removeCPTsByAllHeadVariables(indepVars)
+        self.BN.getDAG().removeVariables(indepVars)
+
     def removeBarrenVariables(self):
         barren = self.getBarrenVariables()
         while barren:
@@ -66,3 +83,15 @@ class VariableElimination(InferenceEngine):
             # remove barren variables from the DAG
             self.BN.getDAG().removeVariables(barren)
             barren = self.getBarrenVariables()
+
+    def constructOneVariable(self, variables):
+        oldCpts = self.getBN().getCPTs().getCPTsByHeadVariables(variables)
+        for variable in variables:
+            for cpt in oldCpts:
+                varIndices = OrderedSet()
+                for t in cpt.getTail():
+                    varIndices.add(cpt.getGlobalReferenceVarInd(t))
+                    cpt.removeTailVariable(t)
+                cpt.removeColumns(varIndices)
+                for row in cpt.getTable():
+                    cpt.set(row, 1.0)

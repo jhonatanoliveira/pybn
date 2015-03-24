@@ -3,9 +3,12 @@ from pydag.core.orderedSet import OrderedSet
 
 class CPTs():
 
-    def __init__(self, cpts=OrderedSet()):
+    def __init__(self, *args):
         self.iterCounter = -1
-        self.cpts = cpts
+        if len(args) == 0:
+            self.cpts = OrderedSet()
+        else:
+            self.cpts = args[0]
 
     def __str__(self):
         toPrint = ""
@@ -73,6 +76,14 @@ class CPTs():
 
     def getCPTsByHead(self, head):
         return CPTs(OrderedSet([cpt for cpt in self.getCPTs() if cpt.getHead() == head]))
+
+    def getCPTsByHeadVariables(self, headVars):
+        cptsByHead = CPTs()
+        for v in headVars:
+            for cpt in self.getCPTs():
+                if v in cpt.getHead():
+                    cptsByHead.add(cpt)
+        return cptsByHead
 
     def getCPTsByTail(self, tail):
         return CPTs(OrderedSet([cpt for cpt in self.getCPTs() if cpt.getTail() == tail]))

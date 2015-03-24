@@ -35,7 +35,10 @@ class CPT:
         for v in self.getTail():
             printTail = printTail + v.__str__() + " "
         printTail.strip()
-        printStr = printStr + "P (" + printHead + "| " + printTail + ")"
+        if len(printTail) == 0:
+            printStr = printStr + "P (" + printHead + ")"
+        else:
+            printStr = printStr + "P (" + printHead + "| " + printTail + ")"
         printStr = printStr + "\n"
         table = ""
         for key in self.getTable():
@@ -96,6 +99,14 @@ class CPT:
         Description: Return the value of a given row on the *table*.
         """
         return self.getTable()[key]
+
+    def set(self, key, value):
+        """
+        Input: value (tuple)
+        Output: (None)
+        Description: Set the value of a given row on the *table*.
+        """
+        self.table[key] = value
 
     def setHead(self, head):
         """
@@ -187,7 +198,7 @@ class CPT:
         """
         Input: other (CPT)
         Output: cptResult (CPT)
-        Description: Special function in Python called when a CPT is multiplied by another one using the * operator. The idea of the multiplication is given as follows. First, find the global reference index of matching variables between the two CPTs. Given one row of the first CPT and one of the second CPT, we verify if the values of for each respective matching index is the same. If all of them are the same, we can proceed with the multiplication by calling *constructNewKeyAndValueTable*, which return the new row (key) and multiplied value. If no matching index, that is no matching variables between the tables, is found all rows are multiplied. After the multiplication, the *head* and *tail* of the resultant CPT is constructed by calling *constructNewHeadAndTailForMult*.
+        Description: Special function in Python called when a CPT is multiplied by another one using the * operator. The idea of the multiplication is given as follows. First, find the global reference index of matching variables between the two CPTs. Given one row of the first CPT and one of the second CPT, we verify if the values of for each respective matching index is the same. If all of them are the same, we can proceed with the multiplication by calling *constructNewKeyAndValueTableForMul*, which return the new row (key) and multiplied value. If no matching index, that is no matching variables between the tables, is found all rows are multiplied. After the multiplication, the *head* and *tail* of the resultant CPT is constructed by calling *constructNewHeadAndTailForMult*.
         """
         # find matching columns (common variables)
         matchingVarIndexes = [(self.getVariables().index(v), other.getVariables().index(
@@ -211,25 +222,20 @@ class CPT:
                     # multiply on common rows. If not, multiply them all
                     allMatchingVarsHasSameValue = True
                     for matchingVarIndex in matchingVarIndexes:
-                        allMatchingVarsHasSameValue = allMatchingVarsHasSameValue and (
-                            selfRow[matchingVarIndex[0]] == otherRow[matchingVarIndex[1]])
+                        allMatchingVarsHasSameValue = allMatchingVarsHasSameValue and (selfRow[matchingVarIndex[0]] == otherRow[matchingVarIndex[1]])
                     if allMatchingVarsHasSameValue:
-                        newKeyAndValue = self.constructNewKeyAndValueTable(
-                            other, selfRow, otherRow, matchingOtherHeadVarIndexes, matchingOtherTailVarIndexes)
-                        cptResult.add(
-                            newKeyAndValue["newKey"], newKeyAndValue["newValue"])
+                        newKeyAndValue = self.constructNewKeyAndValueTableForMul(other, selfRow, otherRow, matchingOtherHeadVarIndexes, matchingOtherTailVarIndexes)
+                        cptResult.add(newKeyAndValue["newKey"], newKeyAndValue["newValue"])
                 else:
-                    newKeyAndValue = self.constructNewKeyAndValueTable(
-                        other, selfRow, otherRow, matchingOtherHeadVarIndexes, matchingOtherTailVarIndexes)
-                    cptResult.add(
-                        newKeyAndValue["newKey"], newKeyAndValue["newValue"])
+                    newKeyAndValue = self.constructNewKeyAndValueTableForMul(other, selfRow, otherRow, matchingOtherHeadVarIndexes, matchingOtherTailVarIndexes)
+                    cptResult.add(newKeyAndValue["newKey"], newKeyAndValue["newValue"])
         # reorganize the head and tail variables
         newHeadAndTail = self.constructNewHeadAndTailForMult(other)
         cptResult.setHead(newHeadAndTail["newHead"])
         cptResult.setTail(newHeadAndTail["newTail"])
         return cptResult
 
-    def constructNewKeyAndValueTable(self, other, selfRow, otherRow, matchingOtherHeadVarIndexes, matchingOtherTailVarIndexes):
+    def constructNewKeyAndValueTableForMul(self, other, selfRow, otherRow, matchingOtherHeadVarIndexes, matchingOtherTailVarIndexes):
         """
         Input: other (CPT), selfRow (tuple(Variable)), otherRow (tuple(Variable), matchingOtherHeadVarIndexes (list[int]), matchingOtherTailVarIndexes (list[int]))
         Output: (dict[str] = (tuple)/float)
@@ -282,10 +288,8 @@ class CPT:
         Description: A helper function that construct the head and tail of the resultant CPT from a division. The head is done by selecting all variables in the *head* of the first CPT (*self*) but not in the *head* of the second CPT (*other*). The *tail* is done by concatening first the head of the *self* CPT, then the tail of the *self* CPT, and finally the tail of the *other* CPT, but ignoring variables already in the *head*.
         """
         newHead = [v for v in self.getHead() if v not in other.getHead()]
-        newTailSelf = [
-            v for v in (self.getHead() + self.getTail()) if v not in newHead]
-        newTailOther = [v for v in (
-            other.getHead() + other.getTail()) if ((v not in newHead) and (v not in newTailSelf))]
+        newTailSelf = [v for v in (self.getHead() + self.getTail()) if v not in newHead]
+        newTailOther = [v for v in (other.getHead() + other.getTail()) if ((v not in newHead) and (v not in newTailSelf))]
         newTail = newTailSelf + newTailOther
         return {"newHead": newHead, "newTail": newTail}
 
@@ -334,7 +338,8 @@ class CPT:
                 tupleRow = tuple(listRow)
                 # Sum the rows which are equal.
                 if tupleRow in newTable:
-                    newTable[tupleRow] = newTable[tupleRow] + cptResult.get(row)
+                    newTable[tupleRow] = newTable[
+                        tupleRow] + cptResult.get(row)
                 else:
                     newTable[tupleRow] = cptResult.get(row)
             cptResult.setTable(newTable)
@@ -367,3 +372,41 @@ class CPT:
             for row in self.getTable():
                 if row[varInd] != evidence[evidenceVar]:
                     del self.table[row]
+
+    def removeColumns(self, columnIndices):
+        """
+        Input: columnIndices (OrderedSet(int))
+        Output: (None)
+        Description: Remove all column in each row of the table of given indices.
+        """
+        for i in columnIndices:
+            self.removeColumn(i)
+
+    def removeColumn(self, columnInd):
+        """
+        Input: columnInd (int)
+        Output: (None)
+        Description: Remove a column in each row of the table of given indice.
+        """
+        newTable = {}
+        for row in self.getTable():
+            rowList = list(row)
+            del rowList[columnInd]
+            newTable[tuple(rowList)] = self.get(row)
+        self.setTable(newTable)
+
+    def removeTailVariable(self, variable):
+        """
+        Input: variable (Variable)
+        Output: (None)
+        Description: Remove a variable from Tail.
+        """
+        self.tail.remove(variable)
+
+    def removeHeadVariable(self, variable):
+        """
+        Input: variable (Variable)
+        Output: (None)
+        Description: Remove a variable from Head.
+        """
+        self.head.remove(variable)

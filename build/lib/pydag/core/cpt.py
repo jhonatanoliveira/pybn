@@ -35,7 +35,10 @@ class CPT:
         for v in self.getTail():
             printTail = printTail + v.__str__() + " "
         printTail.strip()
-        printStr = printStr + "P (" + printHead + "| " + printTail + ")"
+        if len(printTail) == 0:
+            printStr = printStr + "P (" + printHead + ")"
+        else:
+            printStr = printStr + "P (" + printHead + "| " + printTail + ")"
         printStr = printStr + "\n"
         table = ""
         for key in self.getTable():
@@ -96,6 +99,14 @@ class CPT:
         Description: Return the value of a given row on the *table*.
         """
         return self.getTable()[key]
+
+    def set(self, key, value):
+        """
+        Input: value (tuple)
+        Output: (None)
+        Description: Set the value of a given row on the *table*.
+        """
+        self.table[key] = value
 
     def setHead(self, head):
         """
@@ -282,10 +293,8 @@ class CPT:
         Description: A helper function that construct the head and tail of the resultant CPT from a division. The head is done by selecting all variables in the *head* of the first CPT (*self*) but not in the *head* of the second CPT (*other*). The *tail* is done by concatening first the head of the *self* CPT, then the tail of the *self* CPT, and finally the tail of the *other* CPT, but ignoring variables already in the *head*.
         """
         newHead = [v for v in self.getHead() if v not in other.getHead()]
-        newTailSelf = [
-            v for v in (self.getHead() + self.getTail()) if v not in newHead]
-        newTailOther = [v for v in (
-            other.getHead() + other.getTail()) if ((v not in newHead) and (v not in newTailSelf))]
+        newTailSelf = [v for v in (self.getHead() + self.getTail()) if v not in newHead]
+        newTailOther = [v for v in (other.getHead() + other.getTail()) if ((v not in newHead) and (v not in newTailSelf))]
         newTail = newTailSelf + newTailOther
         return {"newHead": newHead, "newTail": newTail}
 
@@ -334,7 +343,8 @@ class CPT:
                 tupleRow = tuple(listRow)
                 # Sum the rows which are equal.
                 if tupleRow in newTable:
-                    newTable[tupleRow] = newTable[tupleRow] + cptResult.get(row)
+                    newTable[tupleRow] = newTable[
+                        tupleRow] + cptResult.get(row)
                 else:
                     newTable[tupleRow] = cptResult.get(row)
             cptResult.setTable(newTable)
@@ -367,3 +377,41 @@ class CPT:
             for row in self.getTable():
                 if row[varInd] != evidence[evidenceVar]:
                     del self.table[row]
+
+    def removeColumns(self, columnIndices):
+        """
+        Input: columnIndices (OrderedSet(int))
+        Output: (None)
+        Description: Remove all column in each row of the table of given indices.
+        """
+        for i in columnIndices:
+            self.removeColumn(i)
+
+    def removeColumn(self, columnInd):
+        """
+        Input: columnInd (int)
+        Output: (None)
+        Description: Remove a column in each row of the table of given indice.
+        """
+        newTable = {}
+        for row in self.getTable():
+            rowList = list(row)
+            del rowList[columnInd]
+            newTable[tuple(rowList)] = self.get(row)
+        self.setTable(newTable)
+
+    def removeTailVariable(self, variable):
+        """
+        Input: variable (Variable)
+        Output: (None)
+        Description: Remove a variable from Tail.
+        """
+        self.tail.remove(variable)
+
+    def removeHeadVariable(self, variable):
+        """
+        Input: variable (Variable)
+        Output: (None)
+        Description: Remove a variable from Head.
+        """
+        self.head.remove(variable)

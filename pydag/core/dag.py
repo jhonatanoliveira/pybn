@@ -20,8 +20,9 @@ class DAG(Graph):
         # Members to save recurrent properties of the DAG (that is, they're
         # used to save something that is intrinsic of the DAG and can be reused
         # later - a kind of precomputation).
-        self.topologicalSortList = []
+        self.topologicalSortList = OrderedSet()
         self.transitiveClosureDict = {}
+        self.allAncestors = OrderedSet()
 
     def copy(self):
         """
@@ -70,8 +71,6 @@ class DAG(Graph):
         Output: result (OrderedSet(Variable))
         Description: Return a set with all ancestors for each given variable.
         """
-        if type(variables) == str:
-            variables = OrderedSet([variables])
         if len(self.allAncestors) == 0:
             self.loadAllAncestors()
         result = OrderedSet()
@@ -147,9 +146,9 @@ class DAG(Graph):
         Output: roots (OrderedSet(Variable))
         Description: Return a set with all root variables in a DAG. Root variables are those without directed edge to them.
         """
-        right = []
+        right = OrderedSet()
         for edge in self.edges:
-            right.append(edge[1])
+            right.add(edge[1])
         roots = OrderedSet()
         for variable in self.variables:
             if variable not in right:
@@ -162,9 +161,9 @@ class DAG(Graph):
         Output: leaves (OrderedSet(Variable))
         Description: Return a set with all leaf variables in a DAG. Leaf variables are those without directed edge from them.
         """
-        left = []
+        left = OrderedSet()
         for edge in self.edges:
-            left.append(edge[0])
+            left.add(edge[0])
         leaves = OrderedSet()
         for variable in self.variables:
             if variable not in left:
