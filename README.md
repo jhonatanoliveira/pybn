@@ -1,4 +1,4 @@
-# pydag
+# pybn
 ## A simple python library for Bayesian Network modelling and inference
 
 **Features**:

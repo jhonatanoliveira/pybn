@@ -1,4 +1,4 @@
-from pydag.core.orderedSet import OrderedSet
+from pybn.core.orderedSet import OrderedSet
 
 
 class CPTs():

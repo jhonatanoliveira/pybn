@@ -4,8 +4,372 @@
 		"selected_items":
 		[
 			[
+				"newHea",
+				"newHeadAndTail"
+			],
+			[
+				"lis",
+				"listSelfRow	statement"
+			],
+			[
+				"final",
+				"finalProduct	statement"
+			],
+			[
 				"var",
-				"varName"
+				"varIndices	statement"
+			],
+			[
+				"varI",
+				"varIndices"
+			],
+			[
+				"varia",
+				"variable	forflow"
+			],
+			[
+				"new",
+				"newTable	statement"
+			],
+			[
+				"newTa",
+				"newTable	statement"
+			],
+			[
+				"colu",
+				"columnInd	param"
+			],
+			[
+				"remove",
+				"removeColumn	function"
+			],
+			[
+				"colum",
+				"columnIndices"
+			],
+			[
+				"newC",
+				"newCPTs	statement"
+			],
+			[
+				"newCP",
+				"newCPTs	statement"
+			],
+			[
+				"head",
+				"headVariables	statement"
+			],
+			[
+				"cpt",
+				"cptsByHead	statement"
+			],
+			[
+				"getCPT",
+				"getCPTsByVariable"
+			],
+			[
+				"vari",
+				"variables	param"
+			],
+			[
+				"curr",
+				"currentRoots	statement"
+			],
+			[
+				"ori",
+				"originalRoots	statement"
+			],
+			[
+				"cu",
+				"currentRoots	statement"
+			],
+			[
+				"get",
+				"getBN	function"
+			],
+			[
+				"indep",
+				"indepVars	statement"
+			],
+			[
+				"ind",
+				"indepVars	statement"
+			],
+			[
+				"Order",
+				"OrderedSet	class"
+			],
+			[
+				"dseparat",
+				"dseparation	import"
+			],
+			[
+				"tupl",
+				"tupleRow	statement"
+			],
+			[
+				"sum",
+				"sumOutVars	statement"
+			],
+			[
+				"vars",
+				"varsInHead	statement"
+			],
+			[
+				"varsIn",
+				"varsInTail	statement"
+			],
+			[
+				"list",
+				"listOtherRow	statement"
+			],
+			[
+				"mat",
+				"matchingOtherTailVarIndexes	param"
+			],
+			[
+				"div",
+				"divCPT	statement"
+			],
+			[
+				"newk",
+				"newKeyAndValue	statement"
+			],
+			[
+				"newKey",
+				"newKeyAndValue	statement"
+			],
+			[
+				"newKe",
+				"newKeyAndValue	statement"
+			],
+			[
+				"pro",
+				"product	statement"
+			],
+			[
+				"fina",
+				"finalProduct	statement"
+			],
+			[
+				"elim",
+				"eliminationOrdering	statement"
+			],
+			[
+				"elimi",
+				"eliminationOrdering"
+			],
+			[
+				"remov",
+				"removeVariable"
+			],
+			[
+				"set",
+				"setCPTs"
+			],
+			[
+				"le",
+				"leaf"
+			],
+			[
+				"evide",
+				"evidenceVars"
+			],
+			[
+				"mor",
+				"moralizedDAG"
+			],
+			[
+				"dag",
+				"DAG"
+			],
+			[
+				"ev",
+				"evidence"
+			],
+			[
+				"evi",
+				"evidenceVar"
+			],
+			[
+				"cop",
+				"copiedCPTs"
+			],
+			[
+				"marg",
+				"marginalizeVars"
+			],
+			[
+				"ctp",
+				"cpts"
+			],
+			[
+				"other",
+				"other"
+			],
+			[
+				"getTa",
+				"getTable"
+			],
+			[
+				"variab",
+				"variable"
+			],
+			[
+				"neigh",
+				"neighbors"
+			],
+			[
+				"nei",
+				"neighbors"
+			],
+			[
+				"sor",
+				"sortedScorings"
+			],
+			[
+				"cho",
+				"chosenScore"
+			],
+			[
+				"sco",
+				"scorings"
+			],
+			[
+				"copy",
+				"copyUndGraph"
+			],
+			[
+				"temp",
+				"tempVars"
+			],
+			[
+				"va",
+				"variables"
+			],
+			[
+				"edge",
+				"edges"
+			],
+			[
+				"we",
+				"weightOfEdge"
+			],
+			[
+				"vai",
+				"variableNeighbors"
+			],
+			[
+				"edg",
+				"edge"
+			],
+			[
+				"edges",
+				"edgesNeededToBeAdded"
+			],
+			[
+				"paren",
+				"parent"
+			],
+			[
+				"top",
+				"toPrint"
+			],
+			[
+				"pare",
+				"parentsOfVstructure"
+			],
+			[
+				"parent",
+				"parents"
+			],
+			[
+				"all",
+				"allVstructures"
+			],
+			[
+				"anX",
+				"anXYZandXYZ"
+			],
+			[
+				"Or",
+				"OrderedSet"
+			],
+			[
+				"match",
+				"matchingOtherTailVarIndexes"
+			],
+			[
+				"newH",
+				"newHead"
+			],
+			[
+				"lst",
+				"listRow"
+			],
+			[
+				"Matchin",
+				"matchingVarIndex"
+			],
+			[
+				"ma",
+				"matchingVarIndex"
+			],
+			[
+				"matc",
+				"matchingVarIndexes"
+			],
+			[
+				"contr",
+				"constructNewHeadAndTail"
+			],
+			[
+				"constr",
+				"constructNewKeyAndValueTable"
+			],
+			[
+				"tem",
+				"tempCpts"
+			],
+			[
+				"newTai",
+				"newTailOther"
+			],
+			[
+				"doma",
+				"domainSplit"
+			],
+			[
+				"self",
+				"selfRow"
+			],
+			[
+				"__",
+				"__str__"
+			],
+			[
+				"prit",
+				"printStr"
+			],
+			[
+				"print",
+				"printStr"
+			],
+			[
+				"prin",
+				"printStr"
+			],
+			[
+				"o",
+				"otherRow"
+			],
+			[
+				"sef",
+				"selfRow"
+			],
+			[
+				"ta",
+				"table"
 			],
 			[
 				"split",
@@ -40,20 +404,8 @@
 				"results"
 			],
 			[
-				"top",
-				"topoSort"
-			],
-			[
 				"topo",
 				"topologicalSort"
-			],
-			[
-				"pare",
-				"parent"
-			],
-			[
-				"paren",
-				"parents"
 			],
 			[
 				"bi",
@@ -69,10 +421,6 @@
 			],
 			[
 				"eg",
-				"edges"
-			],
-			[
-				"edg",
 				"edges"
 			],
 			[
@@ -128,10 +476,6 @@
 				"child"
 			],
 			[
-				"varia",
-				"variable"
-			],
-			[
 				"is",
 				"isInauguralInActiveTrail"
 			],
@@ -164,356 +508,12 @@
 				"dataset"
 			],
 			[
-				"head",
-				"head"
-			],
-			[
 				"hea",
 				"head"
 			],
 			[
 				"til",
 				"tailFlag"
-			],
-			[
-				"spli",
-				"splitLine"
-			],
-			[
-				"bif",
-				"bifFile"
-			],
-			[
-				"bar",
-				"bar_width"
-			],
-			[
-				"dse",
-				"dsepDag"
-			],
-			[
-				"v",
-				"vstructures"
-			],
-			[
-				"pr",
-				"print"
-			],
-			[
-				"variab",
-				"variable"
-			],
-			[
-				"edge",
-				"edge"
-			],
-			[
-				"ed",
-				"edge"
-			],
-			[
-				"pop",
-				"populationId"
-			],
-			[
-				"rand",
-				"randomSong"
-			],
-			[
-				"sele",
-				"selectedOscilator"
-			],
-			[
-				"poss",
-				"possibleOscilators"
-			],
-			[
-				"os",
-				"oscType"
-			],
-			[
-				"select",
-				"selectAll"
-			],
-			[
-				"svg",
-				"svgDomId"
-			],
-			[
-				"das",
-				"dashedDNs"
-			],
-			[
-				"dashe",
-				"dashedDNsGroup"
-			],
-			[
-				"note",
-				"noteId"
-			],
-			[
-				"not",
-				"notesForNotebook"
-			],
-			[
-				"notes",
-				"notesForNotebook"
-			],
-			[
-				"dia",
-				"diagnosticId"
-			],
-			[
-				"diagn",
-				"diagnostics"
-			],
-			[
-				"n",
-				"numberOfLasDays"
-			],
-			[
-				"nu",
-				"numberOfTopSymptoms"
-			],
-			[
-				"re",
-				"registerHelper"
-			],
-			[
-				"getMo",
-				"getMostAndAllPossibleDiseases"
-			],
-			[
-				"all",
-				"allFoundSymptomsCountings"
-			],
-			[
-				"inde",
-				"indexOfMax"
-			],
-			[
-				"max",
-				"maxValue"
-			],
-			[
-				"sym",
-				"symptomIndex"
-			],
-			[
-				"allF",
-				"allFoundSymptomsCountings"
-			],
-			[
-				"symp",
-				"symptomIndex"
-			],
-			[
-				"l",
-				"li	Tag"
-			],
-			[
-				"no",
-				"notebookName"
-			],
-			[
-				"getBa",
-				"getBackgroundColorFill"
-			],
-			[
-				"curr",
-				"currentStroke"
-			],
-			[
-				"mou",
-				"mouseY"
-			],
-			[
-				"cu",
-				"currentFill"
-			],
-			[
-				"daa",
-				"dataFromSelectedTool"
-			],
-			[
-				"get",
-				"getDataFromSelectedTool"
-			],
-			[
-				"da",
-				"dataFromSelectedTool"
-			],
-			[
-				"can",
-				"canvasWidth"
-			],
-			[
-				"canvas",
-				"canvasHeight"
-			],
-			[
-				"click",
-				"clickedOnCanvas"
-			],
-			[
-				"cli",
-				"clickedOnCanvas"
-			],
-			[
-				"ca",
-				"canvasheight"
-			],
-			[
-				"mous",
-				"mouseX"
-			],
-			[
-				"canva",
-				"canvasWidth"
-			],
-			[
-				"angle",
-				"angleStop"
-			],
-			[
-				"pi",
-				"PI"
-			],
-			[
-				"dra",
-				"drawGivenData"
-			],
-			[
-				"dar",
-				"drawGivenData"
-			],
-			[
-				"text",
-				"textColorSlider"
-			],
-			[
-				"exa",
-				"examId"
-			],
-			[
-				"set",
-				"settingId"
-			],
-			[
-				"has",
-				"hasMinimumMatchingSymptom"
-			],
-			[
-				"count",
-				"countingAllPossibleDiseases"
-			],
-			[
-				"countin",
-				"countingOfMostProbableDisease"
-			],
-			[
-				"cke",
-				"checkedSymptoms"
-			],
-			[
-				"for",
-				"for	for (…) {…}"
-			],
-			[
-				"dise",
-				"diseaseId"
-			],
-			[
-				"s",
-				"symptoms"
-			],
-			[
-				"pre",
-				"preventDefault"
-			],
-			[
-				"Obj",
-				"ObjectTable"
-			],
-			[
-				"Obje",
-				"ObjectMap"
-			],
-			[
-				"upda",
-				"updateVariablesInformations"
-			],
-			[
-				"deci",
-				"decideKeysWhichHasToSumOne"
-			],
-			[
-				"allP",
-				"allPossibleCombination"
-			],
-			[
-				"oter",
-				"otherTable"
-			],
-			[
-				"other",
-				"otherTable"
-			],
-			[
-				"cop",
-				"copyOfRowInOtherTable"
-			],
-			[
-				"rowIn",
-				"rowInThisTable"
-			],
-			[
-				"newRow",
-				"newRowConditioningVariables"
-			],
-			[
-				"newRo",
-				"newRowQueryVariables"
-			],
-			[
-				"conditioningStat",
-				"conditioningStatesInOtherTable"
-			],
-			[
-				"conditioningSt",
-				"conditioningStatesInThisTable"
-			],
-			[
-				"querySta",
-				"queryStatesInOtherTable"
-			],
-			[
-				"row",
-				"rowInOtherTable"
-			],
-			[
-				"va",
-				"variableD"
-			],
-			[
-				"chec",
-				"checkedSymptoms"
-			],
-			[
-				"che",
-				"checkedSymptoms"
-			],
-			[
-				"user",
-				"userId"
-			],
-			[
-				"M",
-				"Mongo"
-			],
-			[
-				"valu",
-				"value2"
 			]
 		]
 	},
@@ -521,14 +521,23 @@
 	[
 	],
 	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
 	"command_palette":
 	{
-		"height": 67.0,
+		"height": 87.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
 				"install",
 				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
 			],
 			[
 				"packa",
@@ -561,10 +570,6 @@
 			[
 				"upda",
 				"Package Control: Upgrade Package"
-			],
-			[
-				"remove",
-				"Package Control: Remove Package"
 			],
 			[
 				"todo",
@@ -643,6 +648,42 @@
 	],
 	"file_history":
 	[
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/inference/inferenceEngine.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/inference/eliminationOrdering.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/core/variable.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/core/undirectedGraph.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/core/iseparation.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/core/graph.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/core/dseparation.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/core/dag.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/core/cpts.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/core/cpt.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/build/lib/pydag/utilities/loadBif.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/build/lib/pydag/inference/variableElimination.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/build/lib/pydag/inference/inferenceEngine.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/build/lib/pydag/inference/eliminationOrdering.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/build/lib/pydag/core/variable.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/build/lib/pydag/core/undirectedGraph.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/build/lib/pydag/core/iseparation.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/build/lib/pydag/core/graph.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/build/lib/pydag/core/dseparation.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/build/lib/pydag/core/dag.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/build/lib/pydag/core/cpts.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/build/lib/pydag/core/cpt.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/setup.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/README.md",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/inference/variableElimination.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/utilities/loadBif.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/core/orderedSet.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/core/bayesianNetwork.py",
+		"/Users/jhonatanoliveira/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/jhonatanoliveira/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/jhonatanoliveira/Library/Application Support/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/Users/jhonatanoliveira/Library/Application Support/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/core/ordered_set.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/inference/__init__.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/inference/variable_elimination.py",
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/utilities/alarm.bif",
 		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/guesses.txt",
 		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Mohammed Alghadhban_457779_assignsubmission_file_Assignment3.1.cpp",
 		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 3/Jhonatan/Mohammed Alghadhban_457779_assignsubmission_file_Assignment3.2.cpp",
@@ -701,12 +742,6 @@
 		"/Users/jhonatanoliveira/Google Drive/research/uregina/UAI15 - Simplifying d-separation in BNs/material/experimental_results/source code/benchmarkPlot.py",
 		"/Users/jhonatanoliveira/Google Drive/research/uregina/UAI15 - Simplifying d-separation in BNs/material/experimental_results/source code/benchmarkTextbook.py",
 		"/Users/jhonatanoliveira/Google Drive/research/uregina/UAI15 - Simplifying d-separation in BNs/material/experimental_results/source code/datasets/alarm.bif",
-		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/core/dag.py",
-		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/core/iseparation.py",
-		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/core/dseparation.py",
-		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/utilities/loadBif.py",
-		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/setup.py",
-		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/README.md",
 		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/pydag/__init__.py",
 		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/benchmarks/benchmarkCsv.py",
 		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/benchmarks/benchmarkCsvMultipleTimes.py",
@@ -735,46 +770,16 @@
 		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/cython/setup.py",
 		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/cython/benchmarkCsv.c",
 		"/Users/jhonatanoliveira/Downloads/toandre.txt",
-		"/Users/jhonatanoliveira/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/benchmarkDsepISep.csv",
 		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/datasets/benchmarkCsv.py",
 		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/datasets/textbookDags.py",
 		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/datasets/barley.bif",
 		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/out.txt",
-		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/datasets/alarm.bif",
-		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/testBif.py",
-		"/Users/jhonatanoliveira/Downloads/asia.bif",
-		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/test.py",
-		"/Users/jhonatanoliveira/Downloads/Kjarrulff.txt",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Julie Ziemer_451915_assignsubmission_file_Assignment 2.cpp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Longwei Han_451859_assignsubmission_file_Assignment2.cpp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Michael Thatcher_451841_assignsubmission_file_Assignment_2_Michael_Thatcher.cpp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Joseph Warren_451896_assignsubmission_file_assignment2.sln",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Joseph Egyir_451824_assignsubmission_file_Assignment 2.cpp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Joseph Ashworth_451843_assignsubmission_file_Assignment 2 Code.cpp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/JiaAn Nie_451857_assignsubmission_file_Assignmenttwo.cpp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Jessica Shepherd_451922_assignsubmission_file_Assignment 2.cpp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Jessica Huber_451848_assignsubmission_file_assignment2- Jessica Huber.cpp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Mitchell McNish_451813_assignsubmission_file_assignment #2.cp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Mohammed Alzughaibi_451917_assignsubmission_file_main.cpp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Mohammed Alghadhban_451800_assignsubmission_file_Assignment2.cpp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Mina Gad_451908_assignsubmission_file_Assignment2.cpp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Maxx Hordichuk_451873_assignsubmission_file_assignment2maxxh.cpp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Michael Outerbridge_451876_assignsubmission_file_CS assignment 2.sln",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Mfonisoabasi James_451836_assignsubmission_file_Assignment2.cpp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Kennedy Dollard_451900_assignsubmission_file_assignment 2 code.cpp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Kian Blanchette_451905_assignsubmission_file_theareacode.cpp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Matthew Vician_451799_assignsubmission_file_Source.cpp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Manraj Kalkat_451901_assignsubmission_file_assign2.cpp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Kyle Hungle_451878_assignsubmission_file_Source.cpp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Linda Kuruvila_451889_assignsubmission_file_Assignment 2.cpp.vcxproj",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Juan Echavarria_451885_assignsubmission_file_2015-02-15_CS110_Ass_2.cpp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Joshua Ajakaiye_451849_assignsubmission_file_CanadianPhoneNumbers.cpp",
-		"/Users/jhonatanoliveira/Google Drive/uregina/TA/CS 110/Assignment 2/Jhonatan/Submissions/Joshua Leidl_451868_assignsubmission_file_Assignment 2 - Josh Leidl.cpp"
+		"/Users/jhonatanoliveira/Google Drive/projects/github/pydag/datasets/alarm.bif"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -792,134 +797,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			".txt",
-			"qt1",
-			"preLoadTransitiveClosure",
-			"Y",
-			"t1",
-			"AnY",
-			"anXZ",
-			"t",
-			"dt",
-			"t",
-			"AnXZ",
-			"bitarr",
-			"AnXYZ",
-			"\"time-saving\"",
-			"	    				\"",
-			"\"saving\"",
-			"results",
-			"experiment",
-			"ancest",
-			"ancestor",
-			"ances",
-			"Nodes",
-			"nodes",
-			".nodes",
-			"dag.nodes",
-			".transitiveClosure",
-			"\"transitiveClosure\"",
-			"transitiveClosure",
-			"{}",
-			"_l",
-			"_m",
-			"_n",
-			"addvariable",
-			"addVariable",
-			"node",
-			"Node",
-			"node",
-			"Node",
-			"node",
-			"Node",
-			"node",
-			"nodes",
-			"edges",
-			"set",
-			"sum",
-			"result[\"timeAnY\"]",
-			"dsepDag",
-			"consideringInaugurals",
-			"result[\"i-reachable\"]",
-			"\"tests\"",
-			"d",
-			"[\"tests\"]",
-			"tests",
-			"dsepDag",
-			"consideringInaugurals = True",
-			"dag,True",
-			"\"R\"",
-			"debug",
-			"dSeparation",
-			"numberOfChecks",
-			"_timeAnY",
-			"c",
-			"andXYZ",
-			"anXYZandXYZ",
-			"isInauguralInActivePath",
-			"p",
-			"v",
-			"c",
-			"p",
-			"numberOfChecks",
-			"timeAnY1",
-			"timeAnY0",
-			"result[\"saving\"]",
-			"sumIsep",
-			"'",
-			"timeAnY1",
-			"timeAnY0",
-			"dSep[",
-			"dsep",
-			"isInauguralInActiveTrail",
-			"anXYZandXYZ",
-			"__str__()",
-			",dag)",
-			"consideringInaugurals = True",
-			".reachable(",
-			"v",
-			"seld",
-			"self.isInauguralInActiveTrail",
-			"isVstructure",
-			"isVs",
-			"isInauguralInActiveTrail",
-			"p",
-			"set",
-			"is_iterable",
-			"interse",
-			"inter",
-			"inters",
-			"union",
-			"is_iterable",
-			"__version__",
-			"SLICE_ALL",
-			".iReachable()",
-			"IReachable",
-			"iReachable",
-			"inaugurals",
-			"AnY",
-			"L = L.add((\"up\",v))",
-			"L = L.union( set([ (\"up\",v) ]) )",
-			"mod_nmin",
-			"numberOfChecks",
-			"my_dict",
-			"[]",
+			"pydag",
+			"constructNewHeadAndTailForMult",
+			"performMulOrDivOperation",
+			"division",
+			"constructNewKeyAndValueTableForMulOrDiv",
+			"constructNewKeyAndValueTableForMulOrDivOrDiv",
+			"constructNewKeyAndValueTableForMultOrDiv",
+			"constructNewKeyAndValueTableForDiv",
+			"constructNewKeyAndValueTableForMulOrDivOrDiv",
+			"constructNewKeyAndValueTableForMul",
+			"constructNewKeyAndValueTableForDiv",
+			"varsInHead.append",
+			"constructNewKeyAndValueTableForMul",
+			"constructNewKeyAndValueTable",
+			"remove",
+			"newCPT",
+			"cpts",
+			"getCPTsByHeadVariables",
+			"remove",
+			"copy",
+			"roots",
+			"removeIndependenceByEvidenceVariables",
+			"self.Y",
+			"self.X",
+			"self.allAncestors",
+			"allAnce",
+			"from",
+			"allAncestors",
+			"AllAncestors",
+			"allAncestors",
+			"allAn",
+			"findEliminationOrdering",
+			"sub",
+			"__",
+			"setQueryVariables",
+			"getQueryVariables",
+			"getVaria",
+			"return",
 			"append",
-			"if printTextbookDags:",
-			" in datasets",
-			")\n",
-			",result",
-			".dag.",
-			"expigens",
-			"i-Reacha",
-			"Reacha",
-			"i-Reach",
-			"i-Reac",
-			"if self.debug",
-			"inaug",
-			"inaugurals",
-			"MVS",
-			"tail"
+			"getQueryVariables",
+			"setQueryVariables",
+			"queryVariables",
+			"print",
+			"__mult",
+			"print",
+			"ROW",
+			"print",
+			"debug",
+			"word_wr",
+			"constructNewKeyAndValueTable",
+			"print",
+			"auto_com",
+			"breakp",
+			"ignore",
+			"print",
+			"e501",
+			"pep",
+			"print",
+			"copiedCPTs",
+			"CPTs",
+			"copiedCPTs",
+			"remove",
+			"right",
+			"left",
+			"roots",
+			"cpts",
+			"CPTs",
+			"cpts",
+			"self.cpts",
+			"CPTs",
+			"print",
+			"self.cpts",
+			"Tail",
+			"Head",
+			"head",
+			"Head",
+			"self.i",
+			"next",
+			"cpts",
+			"tempCpts",
+			"cpts",
+			"	",
+			"print",
+			"remove",
+			"copiedDag",
+			"tempVars",
+			"addEd",
+			"addDoma",
+			"edges",
+			"moralizedDAG",
+			"append",
+			"copiedDag",
+			"from ordered_set import OrderedSet",
+			"DAG",
+			"try",
+			"undirectedGraph",
+			"Variables",
+			"variables",
+			"setVariables",
+			"getVariab",
+			"__",
+			"__len",
+			"str",
+			"parents",
+			"dag",
+			"transitiveCLo",
+			".variables",
+			"from",
+			"bitarray",
+			"getColumnIndex",
+			"getProbability",
+			"string",
+			"str",
+			"getTab",
+			"setTable",
+			"accumulative",
+			"controlFlag",
+			".table",
+			".tail",
+			".head",
+			"tempDivCpt",
+			"cptResult",
+			"constructNewHeadAndTail",
+			"constructNewKeyAndValueTable",
+			"print",
+			"tempCpts",
+			"print",
+			"newKey = "
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -927,6 +932,11 @@
 		"regex": false,
 		"replace_history":
 		[
+			"pybn",
+			"from pydag.core.orderedSet import OrderedSet",
+			".getTable()",
+			".getTail()",
+			".getHead()",
 			"loadTransitiveClosure",
 			"OrderedSet",
 			",",
@@ -999,6 +1009,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
 	"output.find_results":
 	{
 		"height": 0.0
@@ -1007,17 +1021,27 @@
 	{
 		"height": 100.0
 	},
+	"pinned_build_system": "",
 	"project": "pydag.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"order",
+				"pydag/core/orderedSet.py"
+			],
+			[
+				"varia",
+				"pydag/inference/variableElimination.py"
+			],
 			[
 				"dnm",
 				"models/darwinianNetworksModel.js"
@@ -1344,6 +1368,7 @@
 	"select_project":
 	{
 		"height": 500.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],
@@ -1352,6 +1377,7 @@
 	"select_symbol":
 	{
 		"height": 392.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],
@@ -1365,7 +1391,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 226.0,
+	"side_bar_width": 190.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -1,9 +1,9 @@
-from pydag.core.dag import DAG
-from pydag.core.orderedSet import OrderedSet
-from pydag.core.variable import Variable
-from pydag.core.cpt import CPT
-from pydag.core.cpts import CPTs
-from pydag.core.bayesianNetwork import BayesianNetwork
+from pybn.core.dag import DAG
+from pybn.core.orderedSet import OrderedSet
+from pybn.core.variable import Variable
+from pybn.core.cpt import CPT
+from pybn.core.cpts import CPTs
+from pybn.core.bayesianNetwork import BayesianNetwork
 
 
 def loadBif(bifFilePath):

@@ -1,6 +1,6 @@
-from pydag.core.graph import Graph
-from pydag.core.variable import Variable
-from pydag.core.orderedSet import OrderedSet
+from pybn.core.graph import Graph
+from pybn.core.variable import Variable
+from pybn.core.orderedSet import OrderedSet
 from bitarray import bitarray
 
 

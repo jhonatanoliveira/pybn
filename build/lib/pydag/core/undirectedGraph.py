@@ -1,5 +1,5 @@
-from pydag.core.dag import DAG
-from pydag.core.graph import Graph
+from pybn.core.dag import DAG
+from pybn.core.graph import Graph
 
 
 class UndirectedGraph(Graph):

@@ -1,7 +1,7 @@
-from pydag.core.undirectedGraph import UndirectedGraph
-from pydag.core.orderedSet import OrderedSet
-from pydag.inference.inferenceEngine import InferenceEngine
-from pydag.inference.eliminationOrdering import EliminationOrdering
+from pybn.core.undirectedGraph import UndirectedGraph
+from pybn.core.orderedSet import OrderedSet
+from pybn.inference.inferenceEngine import InferenceEngine
+from pybn.inference.eliminationOrdering import EliminationOrdering
 
 
 class VariableElimination(InferenceEngine):

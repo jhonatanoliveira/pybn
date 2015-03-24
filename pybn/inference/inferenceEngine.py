@@ -1,5 +1,5 @@
-from pydag.core.orderedSet import OrderedSet
-from pydag.core.dseparation import dSeparation
+from pybn.core.orderedSet import OrderedSet
+from pybn.core.dseparation import dSeparation
 
 
 class InferenceEngine:
