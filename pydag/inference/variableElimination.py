@@ -2,8 +2,6 @@ from pydag.core.undirectedGraph import UndirectedGraph
 from pydag.core.orderedSet import OrderedSet
 from pydag.inference.inferenceEngine import InferenceEngine
 from pydag.inference.eliminationOrdering import EliminationOrdering
-from pydag.core.cpt import CPT
-from pydag.core.cpts import CPTs
 
 
 class VariableElimination(InferenceEngine):
@@ -48,9 +46,7 @@ class VariableElimination(InferenceEngine):
                 finalProduct *= self.BN.getCPTs()[i]
         else:
             finalProduct = self.BN.getCPTs()[0]
-        print finalProduct
         divCPT = finalProduct.marginalize(self.getEvidenceVariables())
-        print divCPT
         return (finalProduct / divCPT)
 
     def beliefUpdate(self, evidences):

@@ -198,7 +198,23 @@ class CPT:
         """
         Input: other (CPT)
         Output: cptResult (CPT)
-        Description: Special function in Python called when a CPT is multiplied by another one using the * operator. The idea of the multiplication is given as follows. First, find the global reference index of matching variables between the two CPTs. Given one row of the first CPT and one of the second CPT, we verify if the values of for each respective matching index is the same. If all of them are the same, we can proceed with the multiplication by calling *constructNewKeyAndValueTable*, which return the new row (key) and multiplied value. If no matching index, that is no matching variables between the tables, is found all rows are multiplied. After the multiplication, the *head* and *tail* of the resultant CPT is constructed by calling *constructNewHeadAndTailForMult*.
+        Description: Special function in Python called when a CPT is multiplied by another one using the * operator.
+        """
+        return self.performMultOrDivOperation(other, False)
+
+    def __div__(self, other):
+        """
+        Input: other (CPT)
+        Output: cptResult (CPT)
+        Description: Special function in Python called when a CPT is divided by another one using the / operator.
+        """
+        return self.performMultOrDivOperation(other, True)
+
+    def performMultOrDivOperation(self, other, isDivision=False):
+        """
+        Input: other (CPT)
+        Output: cptResult (CPT)
+        Description: The idea of the multiplication is given as follows. First, find the global reference index of matching variables between the two CPTs. Given one row of the first CPT and one of the second CPT, we verify if the values of for each respective matching index is the same. If all of them are the same, we can proceed with the multiplication by calling *constructNewKeyAndValueTableForMulOrDiv*, which return the new row (key) and multiplied value. If no matching index, that is no matching variables between the tables, is found all rows are multiplied / divided. After the multiplication, the *head* and *tail* of the resultant CPT is constructed.
         """
         # find matching columns (common variables)
         matchingVarIndexes = [(self.getVariables().index(v), other.getVariables().index(
@@ -225,38 +241,60 @@ class CPT:
                         allMatchingVarsHasSameValue = allMatchingVarsHasSameValue and (
                             selfRow[matchingVarIndex[0]] == otherRow[matchingVarIndex[1]])
                     if allMatchingVarsHasSameValue:
-                        newKeyAndValue = self.constructNewKeyAndValueTable(
-                            other, selfRow, otherRow, matchingOtherHeadVarIndexes, matchingOtherTailVarIndexes)
+                        newKeyAndValue = self.constructNewKeyAndValueTableForMulOrDiv(
+                            other, selfRow, otherRow, matchingOtherHeadVarIndexes, matchingOtherTailVarIndexes, isDivision)
                         cptResult.add(
                             newKeyAndValue["newKey"], newKeyAndValue["newValue"])
                 else:
-                    newKeyAndValue = self.constructNewKeyAndValueTable(
-                        other, selfRow, otherRow, matchingOtherHeadVarIndexes, matchingOtherTailVarIndexes)
+                    newKeyAndValue = self.constructNewKeyAndValueTableForMulOrDiv(
+                        other, selfRow, otherRow, matchingOtherHeadVarIndexes, matchingOtherTailVarIndexes, isDivision)
                     cptResult.add(
                         newKeyAndValue["newKey"], newKeyAndValue["newValue"])
-        # reorganize the head and tail variables
-        newHeadAndTail = self.constructNewHeadAndTailForMult(other)
+        # Construct new Head and Tail for resultant CPT
+        newHeadAndTail = {}
+        if isDivision:
+            newHead = [v for v in self.getHead() if v not in other.getHead()]
+            newTailSelf = [
+                v for v in (self.getHead() + self.getTail()) if v not in newHead]
+            newTailOther = [v for v in (
+                other.getHead() + other.getTail()) if ((v not in newHead) and (v not in newTailSelf))]
+            newTail = newTailSelf + newTailOther
+            newHeadAndTail = {"newHead": newHead, "newTail": newTail}
+        else:
+            newHead = self.getHead() + other.getHead()
+            newTailSelf = [v for v in self.getTail() if v not in newHead]
+            # an extra check if the variable was already added to the tail because
+            # it's on the tail of the *self* CPT.
+            newTailOther = [v for v in other.getTail() if (
+                (v not in newHead) and (v not in newTailSelf))]
+            newTail = newTailSelf + newTailOther
+            newHeadAndTail = {"newHead": newHead, "newTail": newTail}
         cptResult.setHead(newHeadAndTail["newHead"])
         cptResult.setTail(newHeadAndTail["newTail"])
         return cptResult
 
-    def constructNewKeyAndValueTable(self, other, selfRow, otherRow, matchingOtherHeadVarIndexes, matchingOtherTailVarIndexes):
+    def constructNewKeyAndValueTableForMulOrDiv(self, other, selfRow, otherRow, matchingOtherHeadVarIndexes, matchingOtherTailVarIndexes, isDivision=False):
         """
-        Input: other (CPT), selfRow (tuple(Variable)), otherRow (tuple(Variable), matchingOtherHeadVarIndexes (list[int]), matchingOtherTailVarIndexes (list[int]))
+        Input: other (CPT), selfRow (tuple(Variable)), otherRow (tuple(Variable), matchingOtherHeadVarIndexes (list[int]), matchingOtherTailVarIndexes (list[int])), division (Boolean)
         Output: (dict[str] = (tuple)/float)
-        Description: A helper function that do the multiplication first by creating a new row (configuration). This new combination is done by first concatening the values related to the head of *self* CPT with the ones related to the tail of *other* CPT. Later, we also concatane the tail of *self* CPT and the tail of *other*. Finally, the new value is obtained by multiplying the values of *self* and *other* rows.
+        Description: A helper function that do the multiplication or division first by creating a new row (configuration). This new combination is done by first concatening the values related to the head of *self* CPT and the *other* CPT. Later, we also concatane the tail of *self* CPT and the tail of *other*. Finally, the new value is obtained by dividing or multiplying the values of *self* and *other* rows.
         """
         listSelfRow = list(selfRow)
         listOtherRow = list(otherRow)
         newKey = []
-        varsInHead = []
+        varsInHead = OrderedSet()
         for (counter, value) in enumerate(self.getHead()):
-            newKey.append(listSelfRow[counter])
-            varsInHead.append(value)
+            if isDivision:
+                if value not in other.getHead():
+                    newKey.append(listSelfRow[counter])
+                    varsInHead.add(value)
+            else:
+                newKey.append(listSelfRow[counter])
+                varsInHead.add(value)
         for (counter, value) in enumerate(other.getHead()):
             if value not in varsInHead:
                 newKey.append(listOtherRow[counter])
-                varsInHead.append(value)
+                varsInHead.add(value)
         varsInTail = []
         for (counter, value) in enumerate(self.getTail()):
             if value not in varsInHead:
@@ -267,58 +305,14 @@ class CPT:
                 newKey.append(listOtherRow[counter + len(other.getHead())])
                 varsInTail.append(value)
         newKey = tuple(newKey)
-        # multiply to get the new value
-        newValue = self.get(selfRow) * other.get(otherRow)
+        # multiply or dividing to get the new value
+        newValue = 0
+        if isDivision:
+            if other.get(otherRow) != 0:
+                newValue = self.get(selfRow) / other.get(otherRow)
+        else:
+            newValue = self.get(selfRow) * other.get(otherRow)
         return {"newKey": newKey, "newValue": newValue}
-
-    def constructNewHeadAndTailForMult(self, other):
-        """
-        Input: other (CPT)
-        Output: (dict[str] = [Variable])
-        Description: A helper function that construct the head and tail of the resultant CPT from a multiplication. The head is done by concatening the first the head of the first CPT (*self*) then later the second CPT (*other*). The *tail* also is done by concatening first the tail of the *self* CPT and later the *other*, but ignoring variables already in the *head*.
-        """
-        newHead = self.getHead() + other.getHead()
-        newTailSelf = [v for v in self.getTail() if v not in newHead]
-        # an extra check if the variable was already added to the tail because
-        # it's on the tail of the *self* CPT.
-        newTailOther = [v for v in other.getTail() if (
-            (v not in newHead) and (v not in newTailSelf))]
-        newTail = newTailSelf + newTailOther
-        return {"newHead": newHead, "newTail": newTail}
-
-    def constructNewHeadAndTailForDiv(self, other):
-        """
-        Input: other (CPT)
-        Output: (dict[str] = [Variable])
-        Description: A helper function that construct the head and tail of the resultant CPT from a division. The head is done by selecting all variables in the *head* of the first CPT (*self*) but not in the *head* of the second CPT (*other*). The *tail* is done by concatening first the head of the *self* CPT, then the tail of the *self* CPT, and finally the tail of the *other* CPT, but ignoring variables already in the *head*.
-        """
-        newHead = [v for v in self.getHead() if v not in other.getHead()]
-        newTailSelf = [v for v in (self.getHead() + self.getTail()) if v not in newHead]
-        newTailOther = [v for v in (other.getHead() + other.getTail()) if ((v not in newHead) and (v not in newTailSelf))]
-        newTail = newTailSelf + newTailOther
-        return {"newHead": newHead, "newTail": newTail}
-
-    def __div__(self, other):
-        """
-        Input: other (CPT)
-        Output: cptResult (CPT)
-        Description: Special function in Python called when a CPT is divided by another one using the / operator. Here, the idea is to replace each value of each row of the second CPT by the value divided by one. Later, we proceed with normal multiplication between the first (*self*) CPT and the second (*other*) CPT.
-        """
-        tempDivCpt = CPT()
-        tempDivCpt.setHead(other.getHead())
-        tempDivCpt.setTail(other.getTail())
-        # divide other rows by 1
-        for key in other.getTable():
-            newValue = 0
-            if other.getTable()[key] != 0:
-                newValue = 1.0 / other.getTable()[key]
-            tempDivCpt.add(key, newValue)
-        cptResult = self * tempDivCpt
-        # reorganize the head and tail variables
-        newHeadAndTail = self.constructNewHeadAndTailForDiv(other)
-        cptResult.setHead(newHeadAndTail["newHead"])
-        cptResult.setTail(newHeadAndTail["newTail"])
-        return cptResult
 
     def marginalize(self, variables):
         """
