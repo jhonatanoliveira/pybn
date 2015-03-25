@@ -2,6 +2,7 @@ from pybn.core.undirectedGraph import UndirectedGraph
 from pybn.core.orderedSet import OrderedSet
 from pybn.inference.inferenceEngine import InferenceEngine
 from pybn.inference.eliminationOrdering import EliminationOrdering
+from time import time
 
 
 class VariableElimination(InferenceEngine):
@@ -19,8 +20,7 @@ class VariableElimination(InferenceEngine):
         self.removeBarrenVariables()
         # Remove independen by evidence variables
         self.removeIndependenceByEvidenceVariables()
-        # Build 1(v) for all current roots which were not root in the original
-        # BN
+        # Build 1(v) for all current roots which were not root in the original BN
         currentRoots = self.getBN().getDAG().roots()
         newRoots = currentRoots - originalRoots
         self.constructOneVariable(newRoots)
@@ -47,7 +47,8 @@ class VariableElimination(InferenceEngine):
         else:
             finalProduct = self.BN.getCPTs()[0]
         divCPT = finalProduct.marginalize(self.getEvidenceVariables())
-        return (finalProduct / divCPT)
+        finalResult = (finalProduct / divCPT)
+        return finalResult
 
     def beliefUpdate(self, evidences):
         evidenceVars = OrderedSet()

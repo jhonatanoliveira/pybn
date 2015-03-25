@@ -97,11 +97,12 @@ def loadBif(bifFilePath):
 
                     for headVar in tempCpt.getHead():
                         counter = 0
-                        for domainValue in headVar.getDomain():
-                            tableKey = [domainValue] + domainSplit
-                            tableValue = probabilitiesSplit[counter]
-                            tempCpt.add(tuple(tableKey), tableValue)
-                            counter = counter + 1
+                        if (probabilitiesSplit[counter]) > 0:
+                            for domainValue in headVar.getDomain():
+                                tableKey = [domainValue] + domainSplit
+                                tableValue = probabilitiesSplit[counter]
+                                tempCpt.add(tuple(tableKey), tableValue)
+                        counter = counter + 1
                 else:
                     cpts.add(tempCpt)
                     tempCpt = CPT()

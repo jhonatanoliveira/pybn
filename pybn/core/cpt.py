@@ -1,4 +1,6 @@
 from pybn.core.orderedSet import OrderedSet
+from time import time
+import numpy
 
 
 class CPT:
@@ -154,7 +156,7 @@ class CPT:
         Output: (list[Variable])
         Description: Returns all variables in the CPT by concatening the *head* and the *tail*. This is useful when trying to use a global reference indice for the variable. For example, if head = [Variable("a")] and tail = [Variable("b"),Variable("c")] in a global reference for Variable("b") would be 1, since *variables* = (Variable("a"),Variable("b"),Variable("c")).
         """
-        return self.getHead()[:] + self.getTail()[:]
+        return self.getHead() + self.getTail()
 
     def hasVariable(self, variable):
         """
@@ -170,7 +172,7 @@ class CPT:
         Output: table (dict[tuple] = float)
         Description: Returns the current *table*.
         """
-        return self.table.copy()
+        return self.table
 
     def setTable(self, table):
         """
@@ -217,39 +219,28 @@ class CPT:
         Description: The idea of the multiplication is given as follows. First, find the global reference index of matching variables between the two CPTs. Given one row of the first CPT and one of the second CPT, we verify if the values of for each respective matching index is the same. If all of them are the same, we can proceed with the multiplication by calling *constructNewKeyAndValueTableForMulOrDiv*, which return the new row (key) and multiplied value. If no matching index, that is no matching variables between the tables, is found all rows are multiplied / divided. After the multiplication, the *head* and *tail* of the resultant CPT is constructed.
         """
         # find matching columns (common variables)
-        matchingVarIndexes = [(self.getVariables().index(v), other.getVariables().index(
-            v)) for v in self.getVariables() if v in other.getVariables()]
-        # helps to keep track of the index for a matching variable on the head
-        # in the *other* CPT.
-        matchingOtherHeadVarIndexes = [other.getHead().index(
-            v) for v in other.getHead() if ((v in self.getHead()) or (v in self.getTail()))]
-        # helps to keep track of the index for a matching variable on the tail
-        # in the *other* CPT.]
-        matchingOtherTailVarIndexes = [len(other.getHead()) + other.getTail().index(
-            v) for v in other.getTail() if ((v in self.getHead()) or (v in self.getTail()))]
+        matchingVarIndexes = [(self.getVariables().index(v), other.getVariables().index(v)) for v in self.getVariables() if v in other.getVariables()]
+        # helps to keep track of the index for a matching variable on the head in the *other* CPT.
+        matchingOtherHeadVarIndexes = [other.getHead().index(v) for v in other.getHead() if ((v in self.getHead()) or (v in self.getTail()))]
+        # helps to keep track of the index for a matching variable on the tail in the *other* CPT.
+        matchingOtherTailVarIndexes = [len(other.getHead()) + other.getTail().index(v) for v in other.getTail() if ((v in self.getHead()) or (v in self.getTail()))]
         # construct the resultant cpt
         cptResult = CPT()
-        # multiply each row that has matching domain values for all matching
-        # variable columns
+        # multiply each row that has matching domain values for all matching variable columns
         for selfRow in self.getTable():
             for otherRow in other.getTable():
+                newKeyAndValue = {}
                 if len(matchingVarIndexes) > 0:
-                    # verify if tables has common variables, if yes, just
-                    # multiply on common rows. If not, multiply them all
+                    # verify if tables has common variables, if yes, just multiply on common rows. If not, multiply them all
                     allMatchingVarsHasSameValue = True
                     for matchingVarIndex in matchingVarIndexes:
-                        allMatchingVarsHasSameValue = allMatchingVarsHasSameValue and (
-                            selfRow[matchingVarIndex[0]] == otherRow[matchingVarIndex[1]])
+                        allMatchingVarsHasSameValue = allMatchingVarsHasSameValue and (selfRow[matchingVarIndex[0]] == otherRow[matchingVarIndex[1]])
                     if allMatchingVarsHasSameValue:
-                        newKeyAndValue = self.constructNewKeyAndValueTableForMulOrDiv(
-                            other, selfRow, otherRow, matchingOtherHeadVarIndexes, matchingOtherTailVarIndexes, isDivision)
-                        cptResult.add(
-                            newKeyAndValue["newKey"], newKeyAndValue["newValue"])
+                        newKeyAndValue = self.constructNewKeyAndValueTableForMulOrDiv(other, selfRow, otherRow, matchingOtherHeadVarIndexes, matchingOtherTailVarIndexes, isDivision)
+                        cptResult.add(newKeyAndValue["newKey"], newKeyAndValue["newValue"])
                 else:
-                    newKeyAndValue = self.constructNewKeyAndValueTableForMulOrDiv(
-                        other, selfRow, otherRow, matchingOtherHeadVarIndexes, matchingOtherTailVarIndexes, isDivision)
-                    cptResult.add(
-                        newKeyAndValue["newKey"], newKeyAndValue["newValue"])
+                    newKeyAndValue = self.constructNewKeyAndValueTableForMulOrDiv(other, selfRow, otherRow, matchingOtherHeadVarIndexes, matchingOtherTailVarIndexes, isDivision)
+                    cptResult.add(newKeyAndValue["newKey"], newKeyAndValue["newValue"])
         # Construct new Head and Tail for resultant CPT
         newHeadAndTail = {}
         if isDivision:
@@ -324,9 +315,8 @@ class CPT:
             variables = OrderedSet(variables)
         # a copy of the current CPT that can be modified.
         cptResult = self.copy()
-        # find out variables to be summed out, in order to construct the new
-        # table
-        sumOutVars = [v for v in self.head if v not in variables]
+        # find out variables to be summed out, in order to construct the new table
+        sumOutVars = [v for v in self.getHead() if v not in variables]
         for v in sumOutVars:
             # index of the column to be removed in each configuration (row)
             vInd = cptResult.getGlobalReferenceVarInd(v)
@@ -368,7 +358,7 @@ class CPT:
         """
         for evidenceVar in evidence:
             varInd = self.getGlobalReferenceVarInd(evidenceVar)
-            for row in self.getTable():
+            for row in self.getTable().copy():
                 if row[varInd] != evidence[evidenceVar]:
                     del self.table[row]
 
