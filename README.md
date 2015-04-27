@@ -1,4 +1,5 @@
 # pybn
+### (Descontinued): please, try https://github.com/pgmpy/pgmpy
 ## A simple python library for Bayesian Network modelling and inference
 
 **Features**:
